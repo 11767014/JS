@@ -3,40 +3,26 @@ document.body.style.background = "black"
 const placeHolder = document.getElementById("placeHolder");
 const contextPlaceHolder = placeHolder.getContext("2d");
 
-const deckHolder = document.getElementById("deckHolder");
-const contextDeckHolder = deckHolder.getContext("2d");
-
 var firstCard = document.createElement("IMG");
 firstCard.src = "card1.jpg";
 firstCard.width = 125;
 firstCard.height = 200;
 firstCard.style.margin = "5px 10px";
-//document.body.appendChild(firstCard);
-firstCard.onload = function() {
-  contextDeckHolder.drawImage(firstCard, 0, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
-};
-
+document.body.appendChild(firstCard);
 
 var secondCard = document.createElement("IMG");
 secondCard.src = "card2.jpg";
 secondCard.width = 125;
 secondCard.height = 200;
 secondCard.style.margin = "5px 10px";
-//document.body.appendChild(secondCard);
-secondCard.onload = function() {
-  contextDeckHolder.drawImage(secondCard, 140, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
-};
+document.body.appendChild(secondCard);
 
 var thirdCard = document.createElement("IMG");
 thirdCard.src = "card3.jpg";
 thirdCard.width = 125;
 thirdCard.height = 200;
 thirdCard.style.margin = "5px 10px";
-//document.body.appendChild(thirdCard);
-thirdCard.onload = function() {
-  contextDeckHolder.drawImage(thirdCard, 280, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
-};
-
+document.body.appendChild(thirdCard);
 
 let correct = new Audio();
 correct.src = "right.wav";
@@ -44,6 +30,7 @@ correct.duration = "0.5";
 
 let incorrect = new Audio();
 incorrect.src = "wrong.wav";
+
 /*
 let changeCard = document.createElement("IMG");
 changeCard.src = "src/card.png";
