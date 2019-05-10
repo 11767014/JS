@@ -3,6 +3,9 @@ document.body.style.background = "black"
 const placeHolder = document.getElementById("placeHolder");
 const contextPlaceHolder = placeHolder.getContext("2d");
 
+const showScore = document.getElementById("showScore");
+const contextshowScore = showScore.getContext("2d");
+
 var firstCard = document.createElement("IMG");
 firstCard.src = "card1.jpg";
 firstCard.width = 125;
@@ -42,22 +45,6 @@ correct.duration = "0.5";
 
 let incorrect = new Audio();
 incorrect.src = "wrong.wav";
-
-/*
-let changeCard = document.createElement("IMG");
-changeCard.src = "src/card.png";
-changeCard.width = 125;
-changeCard.height = 200;
-changeCard.onload = function() {
-  contextPlaceHolder.drawImage(changeCard, 11, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
-};
-
-function blancCard() {
-  contextPlaceHolder.rect(11, 0, 125, 200);
-  contextPlaceHolder.fillStyle = "white";
-  contextPlaceHolder.fill();
-}
-*/
 
 function drawCard(x, y, width, height, color) {
   let radius = 8;
@@ -172,9 +159,9 @@ function createCard() {
           drawCircle(distX + 82, distY + 140, 25, 0);
           break;
         case 3:
-          drawCircle(distX + 82, distY + 55, 25, 0);
+          drawCircle(distX + 82, distY + 50, 25, 0);
           drawCircle(distX + 82, distY + 110, 25, 0);
-          drawCircle(distX + 82, distY + 165, 25, 0);
+          drawCircle(distX + 82, distY + 170, 25, 0);
           break;
 		case 4:
           drawCircle(distX + 50, distY + 45, 25, 0);
@@ -262,16 +249,26 @@ function createCard() {
 let iteration = 0;
 let results = createCard();
 let rule = randomNumber(0, 2);
-let startTime = Date.now();
+let score = 0;
+
+function showScoreNow(){
+contextshowScore.clearRect(0,0,200,200);
+contextshowScore.font = "40px Arial";
+contextshowScore.fillStyle = "white";
+contextshowScore.fillText("score: " + score, 10, 50);
+}
+showScoreNow();
 
 firstCard.onclick = function() {
   if (results[rule] == cardOne[rule]) {
     correct.play();
+	score++
   } else {
     incorrect.play();
   }
   results = createCard();
   iteration++;
+  showScoreNow();
 
   if (iteration == 10) {
     alert("new rule!");
@@ -286,11 +283,13 @@ firstCard.onclick = function() {
 secondCard.onclick = function() {
   if (results[rule] == cardTwo[rule]) {
     correct.play();
+	score = score+1;
   } else {
     incorrect.play();
   }
   results = createCard();
   iteration++;
+  showScoreNow();
 
   if (iteration == 10) {
     alert("new rule!");
@@ -305,11 +304,13 @@ secondCard.onclick = function() {
 thirdCard.onclick = function() {
   if (results[rule] == cardThree[rule]) {
       correct.play();
+	  score = score+1;
   } else {
       incorrect.play();
   }
   results = createCard();
   iteration++;
+  showScoreNow();
 
   if (iteration == 10) {
     alert("new rule!");
@@ -324,11 +325,13 @@ thirdCard.onclick = function() {
 fourthCard.onclick = function() {
   if (results[rule] == cardFour[rule]) {
       correct.play();
+	  score = score+1;
   } else {
       incorrect.play();
   }
   results = createCard();
   iteration++;
+  showScoreNow();
 
   if (iteration == 10) {
     alert("new rule!");
@@ -339,5 +342,4 @@ fourthCard.onclick = function() {
     iteration = 0;
   }
 };
-
 
