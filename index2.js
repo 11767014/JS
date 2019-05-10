@@ -3,38 +3,45 @@ document.body.style.background = "black"
 const placeHolder = document.getElementById("placeHolder");
 const contextPlaceHolder = placeHolder.getContext("2d");
 
+const deckHolder = document.getElementById("deckHolder");
+const contextDeckHolder = deckHolder.getContext("2d");
+
 var firstCard = document.createElement("IMG");
 firstCard.src = "card1.jpg";
 firstCard.width = 125;
 firstCard.height = 200;
-firstCard.style.margin = "75px 15px";
-//document.body.appendChild(firstCard);
-document.getElementById('imageDiv').appendChild(firstCard)
+firstCard.style.margin = "5px 10px";
+firstCard.onload = function() {
+  contextDeckHolder.drawImage(firstCard, 0, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
+};
 
 
 var secondCard = document.createElement("IMG");
 secondCard.src = "card2.jpg";
 secondCard.width = 125;
 secondCard.height = 200;
-secondCard.style.margin = "75px 15px";
-//document.body.appendChild(secondCard);
-document.getElementById('imageDiv').appendChild(secondCard)
+secondCard.style.margin = "5px 10px";
+secondCard.onload = function() {
+  contextDeckHolder.drawImage(secondCard, 140, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
+};
 
 var thirdCard = document.createElement("IMG");
 thirdCard.src = "card3.jpg";
 thirdCard.width = 125;
 thirdCard.height = 200;
-thirdCard.style.margin = "75px 15px";
-//document.body.appendChild(thirdCard);
-document.getElementById('imageDiv').appendChild(thirdCard)
+thirdCard.style.margin = "5px 10px";
+thirdCard.onload = function() {
+  contextDeckHolder.drawImage(thirdCard, 280, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
+};
 
 var fourthCard = document.createElement("IMG");
 fourthCard.src = "card4.jpg";
 fourthCard.width = 125;
 fourthCard.height = 200;
-fourthCard.style.margin = "75px 15px";
-//document.body.appendChild(fourthCard);
-document.getElementById('imageDiv').appendChild(fourthCard)
+fourthCard.style.margin = "5px 10px";
+fourthCard.onload = function() {
+  contextDeckHolder.drawImage(fourthCard, 420, 0, 125, 200); // FILL THE CANVAS WITH THE IMAGE.
+};
 
 let correct = new Audio();
 correct.src = "right.wav";
@@ -42,7 +49,6 @@ correct.duration = "0.5";
 
 let incorrect = new Audio();
 incorrect.src = "wrong.wav";
-
 /*
 let changeCard = document.createElement("IMG");
 changeCard.src = "src/card.png";
@@ -85,7 +91,6 @@ function drawCard(x, y, width, height, color) {
 function drawCircle(x, y, width, height) {
   let radius = 2;
   contextPlaceHolder.arc(x, y, width, height, radius * Math.PI);
-  contextPlaceHolder.closePath()
 }
 
 function drawSquare(x, y, width, height) {
@@ -98,7 +103,8 @@ function drawTriangle(x, y) {
   contextPlaceHolder.lineTo(x, y + 50);
 }
 
-function drawHeart(x, y, width, height){
+/*
+ function drawHeart(x, y, width, height){
          let topCurveHeight = height * 0.3;
                 contextPlaceHolder.moveTo(x, y + topCurveHeight);
                 contextPlaceHolder.bezierCurveTo(
@@ -126,7 +132,7 @@ function drawHeart(x, y, width, height){
         );
                 
  }
-
+ */
 
 function randomNumber(min, max) {
   let random = Math.floor(Math.random() * (+(max + 1) - +min)) + +min;
@@ -147,18 +153,20 @@ let cardFour = [3, 3, 3];
 
 let possibleRules = ["color", "shape", "number"];
 
+
 // create random cards
 function createCard() {
-  let randomColor = randomNumber(0, 3);
-  let randomShape = randomNumber(0, 3);
-  let randomNum = randomNumber(0, 3);
+  let randomColor = randomNumber(0, 2);
+  let randomShape = randomNumber(0, 2);
+  let randomNum = randomNumber(0, 2);
+
   let color = allCards[0][randomColor];
   let shape = allCards[1][randomShape];
   let number = allCards[2][randomNum];
   let distY = -10;
   let distX = -10;
 
-  drawCard(8, 0, 130, 205, "white");
+  drawCard(11, 0, 125, 200, "white");
 
   contextPlaceHolder.beginPath();
   switch (shape) {
@@ -176,12 +184,6 @@ function createCard() {
           drawCircle(distX + 82, distY + 110, 25, 0);
           drawCircle(distX + 82, distY + 165, 25, 0);
           break;
-		case 4:
-          drawCircle(distX + 50, distY + 45, 25, 0);
-          drawCircle(distX + 115, distY + 45, 25, 0);
-		  drawCircle(distX + 115, distY + 175, 25, 0);
-		  drawCircle(distX + 50, distY + 175, 25, 0);
-        break;
       }
       break;
     case "square":
@@ -198,12 +200,6 @@ function createCard() {
           drawSquare(distX + 65, distY + 90, 40, 40);
           drawSquare(distX + 65, distY + 150, 40, 40);
           break;
-		case 4:
-          drawSquare(distX + 28, distY + 25, 40, 40);
-          drawSquare(distX + 28, distY + 160, 40, 40);
-          drawSquare(distX + 97, distY + 25, 40, 40);
-          drawSquare(distX + 97, distY + 160, 40, 40);
-        break;
       }
       break;
     case "triangle":
@@ -215,41 +211,30 @@ function createCard() {
           drawTriangle(distX + 55, distY + 40);
           drawTriangle(distX + 55, distY + 120);
           break;
-        case 3:
+        case 3: 
           drawTriangle(distX + 55, distY + 20);
           drawTriangle(distX + 55, distY + 80);
           drawTriangle(distX + 55, distY + 140);
           break;
-		case 4:
-          drawTriangle(distX + 25, distY + 20);
-          drawTriangle(distX + 25, distY + 140);
-          drawTriangle(distX + 91, distY + 20);
-		  drawTriangle(distX + 91, distY + 140);
-        break;
       }
       break;
+	  /*
 	case "heart":
-      switch (number) {
+	     switch (number) {
         case 1:
-          drawHeart(distX + 82, distY + 80, 55, 55);
+          drawHeart(distX + 50, distY + 40, 50, 50);
           break;
         case 2:
-          drawHeart(distX + 82, distY + 35, 55, 55);
-          drawHeart(distX + 82, distY + 125, 55, 55);
+          drawHeart(distX + 50, distY + 50, 50, 50);
+          drawHeart(distX + 50, distY + 120, 50, 50);
           break;
-        case 3:
-          drawHeart(distX + 82, distY + 20, 55, 55);
-          drawHeart(distX + 82, distY + 80, 55, 55);
-		  drawHeart(distX + 82, distY + 140, 55, 55);
+        case 3: 
+          drawHeart(distX + 50, distY + 23, 50, 50);
+          drawHeart(distX + 50, distY + 90, 50, 50);
+          drawHeart(distX + 50, distY + 150, 50, 50);
           break;
-		case 4:
-          drawHeart(distX + 53, distY + 15, 55, 55);
-          drawHeart(distX + 53, distY + 145, 55, 55);
-		  drawHeart(distX + 115, distY + 15, 55, 55);
-		  drawHeart(distX + 115, distY + 145, 55, 55);
-        break;
-      }
-	  break;
+	} */
+	break;
   }
   contextPlaceHolder.closePath();
   contextPlaceHolder.fillStyle = color;
@@ -262,7 +247,7 @@ function createCard() {
 let iteration = 0;
 let results = createCard();
 let rule = randomNumber(0, 2);
-let startTime = Date.now();
+let oldRule = rule;
 
 firstCard.onclick = function() {
   if (results[rule] == cardOne[rule]) {
@@ -275,7 +260,7 @@ firstCard.onclick = function() {
 
   if (iteration == 10) {
     alert("new rule!");
-    let oldRule = rule;
+    oldRule = rule;
     while (oldRule == rule) {
       rule = randomNumber(0, 2);
     }
@@ -294,7 +279,7 @@ secondCard.onclick = function() {
 
   if (iteration == 10) {
     alert("new rule!");
-    let oldRule = rule;
+    oldRule = rule;
     while (oldRule == rule) {
       rule = randomNumber(0, 2);
     }
@@ -313,7 +298,7 @@ thirdCard.onclick = function() {
 
   if (iteration == 10) {
     alert("new rule!");
-    let oldRule = rule;
+    oldRule = rule;
     while (oldRule == rule) {
       rule = randomNumber(0, 2);
     }
@@ -332,7 +317,7 @@ fourthCard.onclick = function() {
 
   if (iteration == 10) {
     alert("new rule!");
-    let oldRule = rule;
+    oldRule = rule;
     while (oldRule == rule) {
       rule = randomNumber(0, 2);
     }
