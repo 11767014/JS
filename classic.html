@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="UTF-8" />
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<body>
+
+<div id="menu" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+  <div class="overlay-content">
+    <b text> MENU </b>
+    <a href="#">Instructions</a>
+    <a href="#">Classic</a>
+    <a href="#">Arcade</a>
+  </div>
+</div>
+
+<span style="font-size:50px;cursor:pointer;color:white" onclick="openMenu()">&#9776;</span>
+
+    <div id="imageContainer" align = "center">    
+        <img src="src/card1.png" id="firstCard" class="card">
+        <img src="src/card2.png" id="secondCard" class="card">
+        <img src="src/card3.png" id="thirdCard" class="card">
+        <img src="src/card4.png" id="fourthCard" class="card">
+        <canvas id="newCard" class="newCard"></canvas>
+	</div>
+	
+	<div id="divshowScore" align = "right">
+		<canvas id="showScore"></canvas>
+	</div>
+
+    <link rel="stylesheet" type = "text/css" href="styles.css">
+
+    <script type="text/javascript" src="menu.js"></script>
+	<script type="text/javascript" src="drawCard.js"></script>
+    <script type="text/javascript" src="classic.js"></script>
+	
+	
+</body>
+
+</html>
