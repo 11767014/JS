@@ -1,3 +1,4 @@
+
 const newCard = document.getElementById("newCard");
 const contextNewCard = newCard.getContext("2d");
 
@@ -30,26 +31,26 @@ function move(clickedCard, clickedCardWS) {
 
 	let id = setInterval(frame, 5);
 
-  function frame() {
-    if (bottom < newBottom) {
-      bottom = bottom + factorBottom
-      side = side + factorSide
-      elem.style.bottom = bottom + 'px';
-      elem.style.right = side + 'px';
-	  clickable = false;
-    } else {
-	clearInterval(id);
-    }
-  }
-  
-	function moveBack(){
+  	function moveBack(){
 		elem.style.bottom = 0 + "%";
 		elem.style.right = 0 + "%";
 		document.getElementById(clickedCard).style.zIndex = 2;
 		results = createCard(contextNewCard, newCard);
 		clickable = true;		
 	}
-	setTimeout(moveBack, 600)
+    
+    function frame() {
+        if (bottom < newBottom) {
+          bottom = bottom + factorBottom
+          side = side + factorSide
+          elem.style.bottom = bottom + 'px';
+          elem.style.right = side + 'px';
+          clickable = false;
+        } else {
+	       clearInterval(id);
+            moveBack();
+        }
+    }
 
  };
 	
@@ -270,6 +271,5 @@ function compareArrays(a,b){
   
   return cardResults;
  };
-
 
 
