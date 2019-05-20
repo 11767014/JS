@@ -1,34 +1,37 @@
 body {
+  height:100vh;
   background-color: black;
   font-family: 'Calibri', sans-serif;
   color: white;
+  overflow:hidden;
+}
+
+#menuButton{
+    font-size:50px;
+    cursor:pointer;
+    color:white;
+    width:50px;
+    height:50px;
 }
 
 #imageContainer {
-  width: 70%;
-  height: 0;
-  padding-bottom: 50%; 
+  width: 50%;
+  height: 80%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-
+  top: 0%;
 }
 
 #divshowScore {
   position: absolute;
   width: 250px; 
   height: 100px;
-  right: 0%;
+  left: 25%;
   bottom: 0%;
 }
 
 #newCard {
-  position: absolute;
-  right: 0%;
-  bottom: 0%
-}
-
-#duplicateCard {
   position: absolute;
   right: 0%;
   bottom: 0%
@@ -42,6 +45,7 @@ body {
   width: 20%;
   height: 40%;
   position: absolute;
+  cursor:pointer;
 }
 
 
@@ -50,15 +54,15 @@ body {
 }
 
 #secondCard {
-        left: 27%;
+    left: 27%;
 }
 
 #thirdCard {
-        left: 53%;
+    left: 53%;
 }
 
 #fourthCard {
-        left: 80%;
+    left: 80%;
 }
 
 
