@@ -286,4 +286,4 @@ function readDeviceOrientation() {
 let or = readDeviceOrientation();
 
 alert(or)
-
+alert("hi")
