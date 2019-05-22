@@ -273,17 +273,4 @@ function compareArrays(a,b){
  };
 
 
-function readDeviceOrientation() {
-    let orientation = "unknown";
-    if (Math.abs(window.orientation) === 90) {
-       orientation = "landscape"; 
-    } else {
-    	orientation = "portrait"
-    }
-   return(orientation)
-}
-
-let or = readDeviceOrientation();
-
-//alert(or)
-alert("hi")
+alert("width is: " + window.innerWidth + " height is: " + window.innerHeight)
