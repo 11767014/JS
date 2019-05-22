@@ -272,14 +272,18 @@ function compareArrays(a,b){
   return cardResults;
  };
 
-function isMobileDevice() {
-        let mobile = true;
-        if(ScreenOrientation.type == undefined){
-            mobile = false;
-            } else {
-            let mql = window.matchMedia("(orientation: portrait)");
-            alert(mql == true)
-            }
-        return mobile
+
+function readDeviceOrientation() {
+    let orientation = "unknown";
+    if (Math.abs(window.orientation) === 90) {
+       orientation = "landscape"; 
+    } else {
+    	orientation = "portrait"
     }
+   return(orientation)
+}
+
+let or = readDeviceOrientation();
+
+alert(or)
 
