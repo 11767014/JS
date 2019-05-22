@@ -272,4 +272,16 @@ function compareArrays(a,b){
   return cardResults;
  };
 
+function toggleScreen(){
+    function isMobileDevice() {
+        let mobile = true;
+        if(ScreenOrientation.type == undefined){
+            mobile = false;
+            }
+        return mobile
+    };
+   if(isMobileDevice() == true){
+       screen.orientation.lock("landscape")
+   }
+}
 
