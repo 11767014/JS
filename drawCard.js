@@ -276,17 +276,10 @@ function isMobileDevice() {
         let mobile = true;
         if(ScreenOrientation.type == undefined){
             mobile = false;
+            } else {
+            let mql = window.matchMedia("(orientation: portrait)");
+            alert(mql == true)
             }
         return mobile
     }
-	
-alert(isMobileDevice())
-
-
-
-function toggleScreen(){
-    if(isMobileDevice() == true){
-       screen.orientation.lock("landscape")
-   }
-}
 
