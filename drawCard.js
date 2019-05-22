@@ -272,8 +272,7 @@ function compareArrays(a,b){
   return cardResults;
  };
 
-function toggleScreen(){
-    function isMobileDevice() {
+function isMobileDevice() {
         let mobile = true;
         if(ScreenOrientation.type == undefined){
             mobile = false;
@@ -282,7 +281,11 @@ function toggleScreen(){
     }
 	
 alert(isMobileDevice())
-   if(isMobileDevice() == true){
+
+
+
+function toggleScreen(){
+    if(isMobileDevice() == true){
        screen.orientation.lock("landscape")
    }
 }
