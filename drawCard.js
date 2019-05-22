@@ -273,4 +273,13 @@ function compareArrays(a,b){
  };
 
 
-alert("width is: " + window.innerWidth + " height is: " + window.innerHeight)
+
+if(window.innerWidth < window.innerHeight){
+    screen.orientation.lock("landscape-primary")
+//    document.body.style.setProperty("transform", "rotate(-90deg)", null);
+//    document.body.style.setProperty("-webkit-transform", "rotate(-90deg)", null);
+//    document.body.style.setProperty("-moz-transform", "rotate(-90deg)", null);
+//    document.body.style.setProperty("-o-transform", "rotate(-90deg)", null);
+    
+//    location.reload();
+}
