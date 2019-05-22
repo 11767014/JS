@@ -279,7 +279,9 @@ function toggleScreen(){
             mobile = false;
             }
         return mobile
-    };
+    }
+	
+alert(isMobileDevice())
    if(isMobileDevice() == true){
        screen.orientation.lock("landscape")
    }
