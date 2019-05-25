@@ -1,8 +1,9 @@
 const newCard = document.getElementById("newCard");
 const contextNewCard = newCard.getContext("2d");
 
-window.onload = resizeGame();
-window.onresize = resizeGame;
+window.onload = onLoadGame();
+window.onresize = onResizeGame;
+
 
 let modal = document.getElementById("myModal");
 
@@ -177,13 +178,13 @@ function compareArrays(a,b){
 };
 
 // create a random card
- function createCard(context, elem, randomColor = [], randomShape = [], randomNum = []) {    
+ function createCard(context, elem, randomColor, randomShape, randomNum) {    
   // draw a random number for color, shape, number  
   
 	let cardResults = [randomColor, randomShape, randomNum];
-	
-	if(randomNum == false || randomShape == false || randomNum == false){
-	
+
+    if(randomColor == null && randomShape == null && randomNum == null){
+
 	do{
 	randomColor = randomNumber(0, 3);
 	randomShape = randomNumber(0, 3);
@@ -192,8 +193,8 @@ function compareArrays(a,b){
 	cardResults = [randomColor, randomShape, randomNum];
 	}
 	while(compareArrays(cardResults,results) == true || compareArrays(cardResults,cardOne) == true || compareArrays(cardResults,cardTwo) == true || compareArrays(cardResults,cardThree) == true || compareArrays(cardResults,cardFour) == true)
+    }
 
-	}
   // translate the numbers in actual color, shape, number
   	let color = allCards[0][randomColor];
 	let shape = allCards[1][randomShape];
@@ -300,14 +301,16 @@ function compareArrays(a,b){
   return cardResults;
  };
 
+results = createCard(contextNewCard, newCard);
 
-function resizeGame(){
+function onLoadGame(){
 	let container = document.getElementById("imageContainer");
 	let size = 850;
 	let screenWidth =  document.documentElement.clientWidth;
 	let screenHeight = document.documentElement.clientHeight;
-	let factorR = 0;
-	
+	    
+    let backUpCanvas = document.getElementById("backUpCanvas");
+	let backUpContext = backUpCanvas.getContext("2d");
 	if(screenWidth > screenHeight){
 		size = 0.9*screenHeight;
 		} else {
@@ -315,16 +318,14 @@ function resizeGame(){
 		}
 	container.style.width = container.style.height = size + "px"
 	
-
-	const backUpCanvas = document.createElement('canvas');
-	const backUpContext = backUpCanvas.getContext('2d');
+    newCard.width = (size *0.2)
+    newCard.height = (size *0.35)
 	
-	// save main canvas contents
-	backUpContext.drawImage(newCard, 0,0);
-
-	backUpCanvas.width = newCard.width = (size *0.2)
-	backUpCanvas.height = newCard.height = (size *0.35)
-	
-	// restore main newCard
-	contextNewCard.drawImage(backUpCanvas, 0,0);
 }
+     
+function onResizeGame(){
+    onLoadGame();
+    createCard(contextNewCard, newCard, randomColor = results[0], randomShape = results[1], randomNum = results[2]);    
+}
+
+     
