@@ -1,4 +1,31 @@
-var elemFull = document.documentElement
+const newCard = document.getElementById("newCard");
+const contextNewCard = newCard.getContext("2d");
+
+function resizeGame(){
+	let container = document.getElementById("imageContainer");
+	let size = 850;
+	let screenWidth =  window.innerWidth;
+	let screenHeight = window.innerHeight;
+	let factorR = 0;
+	
+	if(screenWidth > screenHeight){
+		size = 0.9*screenHeight;
+		} else {
+		size = 0.9*screenHeight;
+		}
+	container.style.width = container.style.height = size + "px"
+	
+	newCard.width = (size *0.2)
+	newCard.height = (size *0.35)
+}
+
+window.onload = resizeGame();
+window.onresize = resizeGame()
+
+
+
+let elemFull = document.documentElement
+
 
 function openFullscreen() {
   if (elemFull.requestFullscreen) {
@@ -29,11 +56,6 @@ openModal = function() {
 closeModal = function() {
   modal.style.display = "none";
 }
-
-
-
-const newCard = document.getElementById("newCard");
-const contextNewCard = newCard.getContext("2d");
 
 let correct = new Audio();
 correct.src = "src/right.wav"
@@ -136,7 +158,7 @@ function drawSquare(context, elem, xp, yp, wp, hp) {
 
 // draw a circle
 function drawCircle(context, elem, xp, yp, radiusp) {
-  let radius = (firstCard.width*radiusp)*0.01;
+  let radius = pc(radiusp, elem.width)
   let y = pc(yp, elem.height);
   let x = pc(xp, elem.width);  
   context.arc(x, y, radius, 0 * Math.PI, 2 * Math.PI);
@@ -210,15 +232,12 @@ function compareArrays(a,b){
 
   // translate the numbers in actual color, shape, number
   	let color = allCards[0][randomColor];
-	//let shape = allCards[1][randomShape];
-	
-	let shape = "circle";
+	let shape = allCards[1][randomShape];
 	let number = allCards[2][randomNum];
    
   drawCard(context, elem, 0, 0, "white")
   context.beginPath();
   
-     
    switch (shape) {
     case "circle":
       switch (number) {
@@ -316,5 +335,4 @@ function compareArrays(a,b){
   
   return cardResults;
  };
-
 

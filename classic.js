@@ -1,26 +1,10 @@
-// show score
 
 /*
-let containerWidth = container.clientWidth;
-
-container.clientHeight = containerWidth;
-
-alert(container.clientHeight)
-*/
-
-function resizeGame(){
-	let container = document.getElementById("imageContainer");
-	let size = 850;
-	let screenWidth =  window.innerWidth;
-	let screenHeight = window.innerHeight;
-	if(screenWidth > screenHeight){
-		size = 0.9*screenHeight;
-		} else {
-		size = 0.9*screenWidth;
-		}
-	container.style.width = container.style.height = size + "px"
-}
-
+let playCard = new Image();
+playCard.src = "src/card1.png";
+//contextNewCard.drawImage(playCard, 0, 0, document.getElementById("newCard").width, document.getElementById("newCard").height);
+	*/
+	
 function showScoreNow(){
 document.getElementById("showScore").innerHTML = "score: " + score;
 }
