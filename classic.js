@@ -10,7 +10,6 @@ let rule = randomNumber(0, 2);
 let maxIteration = randomNumber(9,11)
 let oldRule = rule;
 let score = 0;
-let level = 0;
 let round = 0;
 let lastThree = 0;
 let roundScore = [];
