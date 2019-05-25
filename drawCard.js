@@ -15,6 +15,9 @@ function resizeGame(){
 		}
 	container.style.width = container.style.height = size + "px"
 	
+	alert(container.style.width)
+	alert(screenWidth)
+	
 	newCard.width = (size *0.2)
 	newCard.height = (size *0.35)
 }
