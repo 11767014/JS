@@ -1,18 +1,62 @@
+var elemFull = document.documentElement
+
+function openFullscreen() {
+  if (elemFull.requestFullscreen) {
+    elemFull.requestFullscreen();
+  } else if (elemFull.mozRequestFullScreen) { /* Firefox */
+    elemFull.mozRequestFullScreen();
+  } else if (elemFull.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elemFull.webkitRequestFullscreen();
+  } else if (elemFull.msRequestFullscreen) { /* IE/Edge */
+    elemFull.msRequestFullscreen();
+  }
+}
+
+let modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+openModal = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+closeModal = function() {
+  modal.style.display = "none";
+}
+
+
 
 const newCard = document.getElementById("newCard");
 const contextNewCard = newCard.getContext("2d");
-
-let computedStyle = getComputedStyle(firstCard);
-let widthCard = parseInt(computedStyle.getPropertyValue('width'), 10);
-let heightCard = parseInt(computedStyle.getPropertyValue('height'), 10);
-newCard.width = widthCard;
-newCard.height = heightCard;
 
 let correct = new Audio();
 correct.src = "src/right.wav"
 
 let incorrect = new Audio();
 incorrect.src = "src/wrong.wav"
+
+// define all cards
+let allCards = [
+	["red","green","gold","blue"],
+	["circle", "square","triangle","heart"],
+	[1,2,3,4]
+];
+
+// define specific cards
+let cardOne = [1, 2, 0];
+let cardTwo = [2, 1, 1];
+let cardThree = [0, 0, 2];
+let cardFour = [3, 3, 3];
+
+// show possible rules
+let possibleRules = ["color", "shape", "number"];
+let results = [];
 
 //function to move the card on top of the clicked card
 function move(clickedCard, clickedCardWS) {
@@ -34,7 +78,7 @@ function move(clickedCard, clickedCardWS) {
   	function moveBack(){
 		elem.style.bottom = 0 + "%";
 		elem.style.right = 0 + "%";
-		document.getElementById(clickedCard).style.zIndex = 2;
+		document.getElementById(clickedCard).style.zIndex = 0;
 		results = createCard(contextNewCard, newCard);
 		clickable = true;		
 	}
@@ -92,10 +136,9 @@ function drawSquare(context, elem, xp, yp, wp, hp) {
 
 // draw a circle
 function drawCircle(context, elem, xp, yp, radiusp) {
-  let radius = pc(radiusp, elem.width);
+  let radius = (firstCard.width*radiusp)*0.01;
   let y = pc(yp, elem.height);
   let x = pc(xp, elem.width);  
-//  context.beginPath();
   context.arc(x, y, radius, 0 * Math.PI, 2 * Math.PI);
   context.closePath();
 }
@@ -167,7 +210,9 @@ function compareArrays(a,b){
 
   // translate the numbers in actual color, shape, number
   	let color = allCards[0][randomColor];
-	let shape = allCards[1][randomShape];
+	//let shape = allCards[1][randomShape];
+	
+	let shape = "circle";
 	let number = allCards[2][randomNum];
    
   drawCard(context, elem, 0, 0, "white")
@@ -273,13 +318,3 @@ function compareArrays(a,b){
  };
 
 
-
-if(window.innerWidth < window.innerHeight){
-    screen.orientation.lock("landscape-primary")
-//    document.body.style.setProperty("transform", "rotate(-90deg)", null);
-//    document.body.style.setProperty("-webkit-transform", "rotate(-90deg)", null);
-//    document.body.style.setProperty("-moz-transform", "rotate(-90deg)", null);
-//    document.body.style.setProperty("-o-transform", "rotate(-90deg)", null);
-    
-//    location.reload();
-}

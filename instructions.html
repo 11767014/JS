@@ -22,26 +22,27 @@
 
 <span style="font-size:50px;cursor:pointer;color:white" onclick="openMenu()">&#9776;</span>
 
+    <div class="majorElements"> 
+    <div class="arrow" id="divArrowImg"><img src="src/arrow.png" id="arrowImg"></div>
     <div id="instructionsTitle" class="title" align="center"></div>
     <div id="instructionsText1" class="introText" align="center"></div>
     <div id="instructionsText2" class="text" align="center"></div>
-    
-    <div class="arrow"><img src="src/arrow.png" id=arrowImg></div>
-    
-    <div class="majorElements">    
+        
     <div class="imageContainerExample" align = "center">    
         <img src="src/card1.png" id="firstCard" class="card">
         <img src="src/card2.png" id="secondCard" class="card">
         <img src="src/card3.png" id="thirdCard" class="card">
         <img src="src/card4.png" id="fourthCard" class="card">
        <div class="moveCard"> <canvas id="newCard"></canvas> </div>
-	</div>    
-    
+    </div>
+        
     <div id="instructionsText3" class="text" align="center"></div>
     <div id="instructionsText4" class="text" align="center"></div>
-    <a href="classic.html" class="button" align="center">start game</a>
-    </div>
-    
+    <a href="classic.html" class="button">Start Game</a>
+    </div>    
+      
+
+    <script type="text/javascript" src="functions.js"></script>
     <script type="text/javascript" src="menu.js"></script>
 	<script type="text/javascript" src="drawCard.js"></script>	
     <script type="text/javascript" src="instructions.js"></script>	
