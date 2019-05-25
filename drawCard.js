@@ -4,8 +4,8 @@ const contextNewCard = newCard.getContext("2d");
 function resizeGame(){
 	let container = document.getElementById("imageContainer");
 	let size = 850;
-	let screenWidth =  window.innerWidth;
-	let screenHeight = window.innerHeight;
+	let screenWidth =  document.documentElement.clientWidth;
+	let screenHeight = document.documentElement.clientHeight;
 	let factorR = 0;
 	
 	if(screenWidth > screenHeight){
