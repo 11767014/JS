@@ -11,7 +11,7 @@ function resizeGame(){
 	if(screenWidth > screenHeight){
 		size = 0.9*screenHeight;
 		} else {
-		size = 0.9*screenHeight;
+		size = 0.9*screenWidth;
 		}
 	container.style.width = container.style.height = size + "px"
 	
