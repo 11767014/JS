@@ -1,10 +1,3 @@
-
-/*
-let playCard = new Image();
-playCard.src = "src/card1.png";
-//contextNewCard.drawImage(playCard, 0, 0, document.getElementById("newCard").width, document.getElementById("newCard").height);
-	*/
-	
 function showScoreNow(){
 document.getElementById("showScore").innerHTML = "score: " + score;
 }
@@ -14,8 +7,7 @@ document.getElementById("modalText").innerHTML = "The Wisconsin Card Sorting Tas
 
 // start of the game
 let rule = randomNumber(0, 2);
-let maxIteration = 4;
-//let maxIteration = randomNumber(9,11)
+let maxIteration = randomNumber(9,11)
 let oldRule = rule;
 let score = 0;
 let level = 0;

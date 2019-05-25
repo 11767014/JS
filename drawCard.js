@@ -1,46 +1,8 @@
 const newCard = document.getElementById("newCard");
 const contextNewCard = newCard.getContext("2d");
 
-function resizeGame(){
-	let container = document.getElementById("imageContainer");
-	let size = 850;
-	let screenWidth =  document.documentElement.clientWidth;
-	let screenHeight = document.documentElement.clientHeight;
-	let factorR = 0;
-	
-	if(screenWidth > screenHeight){
-		size = 0.9*screenHeight;
-		} else {
-		size = 0.8*screenWidth;
-		}
-	container.style.width = container.style.height = size + "px"
-	
-	alert(container.style.width)
-	alert(screenWidth)
-	
-	newCard.width = (size *0.2)
-	newCard.height = (size *0.35)
-}
-
 window.onload = resizeGame();
-window.onresize = resizeGame()
-
-
-
-let elemFull = document.documentElement
-
-
-function openFullscreen() {
-  if (elemFull.requestFullscreen) {
-    elemFull.requestFullscreen();
-  } else if (elemFull.mozRequestFullScreen) { /* Firefox */
-    elemFull.mozRequestFullScreen();
-  } else if (elemFull.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elemFull.webkitRequestFullscreen();
-  } else if (elemFull.msRequestFullscreen) { /* IE/Edge */
-    elemFull.msRequestFullscreen();
-  }
-}
+window.onresize = resizeGame;
 
 let modal = document.getElementById("myModal");
 
@@ -215,13 +177,12 @@ function compareArrays(a,b){
 };
 
 // create a random card
- function createCard(context, elem) {    
+ function createCard(context, elem, randomColor = [], randomShape = [], randomNum = []) {    
   // draw a random number for color, shape, number  
-  	let randomColor = [];
-	let randomShape = [];
-	let randomNum = [];
-	  	
+  
 	let cardResults = [randomColor, randomShape, randomNum];
+	
+	if(randomNum == false || randomShape == false || randomNum == false){
 	
 	do{
 	randomColor = randomNumber(0, 3);
@@ -232,7 +193,7 @@ function compareArrays(a,b){
 	}
 	while(compareArrays(cardResults,results) == true || compareArrays(cardResults,cardOne) == true || compareArrays(cardResults,cardTwo) == true || compareArrays(cardResults,cardThree) == true || compareArrays(cardResults,cardFour) == true)
 
-
+	}
   // translate the numbers in actual color, shape, number
   	let color = allCards[0][randomColor];
 	let shape = allCards[1][randomShape];
@@ -339,3 +300,31 @@ function compareArrays(a,b){
   return cardResults;
  };
 
+
+function resizeGame(){
+	let container = document.getElementById("imageContainer");
+	let size = 850;
+	let screenWidth =  document.documentElement.clientWidth;
+	let screenHeight = document.documentElement.clientHeight;
+	let factorR = 0;
+	
+	if(screenWidth > screenHeight){
+		size = 0.9*screenHeight;
+		} else {
+		size = 0.8*screenWidth;
+		}
+	container.style.width = container.style.height = size + "px"
+	
+
+	const backUpCanvas = document.createElement('canvas');
+	const backUpContext = backUpCanvas.getContext('2d');
+	
+	// save main canvas contents
+	backUpContext.drawImage(newCard, 0,0);
+
+	backUpCanvas.width = newCard.width = (size *0.2)
+	backUpCanvas.height = newCard.height = (size *0.35)
+	
+	// restore main newCard
+	contextNewCard.drawImage(backUpCanvas, 0,0);
+}
