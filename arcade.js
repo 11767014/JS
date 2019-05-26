@@ -12,7 +12,7 @@ document.getElementById("modalText").innerHTML = "<b>ARCADE GAME</b> </br></br> 
 // start of the game
 let secs = 0;
 let rule = randomNumber(0, 2);
-let maxIteration = 5;
+let maxIteration = randomNumber(4, 6);
 let oldRule = rule;
 let score = 0;
 let level = 1;
@@ -45,7 +45,7 @@ function onRound(){
     do {
       rule = randomNumber(0, 2);
     } while (oldRule == rule);
-    maxIteration = 5;
+    maxIteration = randomNumber(4, 6);
     round++;
     roundScore = [];
     newLevel();
