@@ -6,9 +6,8 @@ function showTimingNow(){
 document.getElementById("showTiming").innerHTML = "time: " + roundDec(secs, 0);
 }
 
-
-//window.onload = openModal();
-document.getElementById("modalText").innerHTML = "The Wisconsin Card Sorting Task is a cognitive task. By practicing regularly, you can train your executive functions. </br> </br> During the classic game, a card will appear at the bottom of your screen. You are asked to sort this card according to a hidden rule. You sort a card by clicking one of the decks on top of the screen. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule."
+window.onload = openLevelModal;
+document.getElementById("modalText").innerHTML = "<b>ARCADE GAME</b> </br></br> Like a classical game, in an arcade game you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule. </br></br> However, in an arcade game you follow several levels. Each level is a bit more difficult than the last."
 
 // start of the game
 let secs = 0;
@@ -16,7 +15,7 @@ let rule = randomNumber(0, 2);
 let maxIteration = 5;
 let oldRule = rule;
 let score = 0;
-let level = 1;
+let level = 3;
 let round = 0;
 let errors = 0;
 let lastThree = 0;
@@ -25,20 +24,18 @@ let clickable = true;
 let prsvrnceErrors = 0;
 let maxErrors = Infinity;
 let timeSpan = 0;
-
-let endDate = (new Date().getTime());   
-
+let endDate = (new Date().getTime()); 
+let pause = false;
 
 levelUp();
-
-
 showScoreNow();
 
 function newLevel(){
  if (round%2 == 0) {
     level = level + 1;
     errors = 0;
-  levelUp();
+	levelUp();
+	openLevelModal();
   }
 };
 
@@ -52,9 +49,12 @@ function onRound(){
     round++;
     roundScore = [];
     newLevel();
+	if(level == 1){
+		document.getElementById("modalTextLevel").innerHTML = "<b>New rule!</b> </br></br> During the first level, you get an alert when the rule changes. Please try to find the new rule without making too many errors."
+		openLevelModal();
+	}
   }
 };
-
 
 function correctDeck(factor, clickedCard) {
 	move(factor, clickedCard);
@@ -98,49 +98,49 @@ function levelUp(){
     switch(level){
         case 1:
             maxErrors = 5;
-            if (roundScore.length == maxIteration){
-            alert("new rule!")}
             break;
         case 2:
             maxErrors = 5;
+			document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> The second level is like a classical game. Try to find the hidden rule, but beware not to make more than 5 errors."
             break;
         case 3:
-            showTimingNow();
-            maxErrors = 5;
-            timeSpan = 5500;
-            timingFunction(timeSpan);
+			document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> In the third level, your time is limited. Try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 5 seconds, the card will automatically count as an error."
+			timeSpan = 5500;
             break;
         case 4:
-            showTimingNow();
-            maxErrors = 5;
+			document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> Well done so far! Again, try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 3 seconds, the card will automatically count as an error."
             timeSpan = 3500;
-            timingFunction(timeSpan);
             break;
         case 5:
-            showTimingNow();
-            maxErrors = 5;
+			document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> This is the final level. Try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 2 seconds, the card will automatically count as an error."
             timeSpan = 2500;
-            timingFunction(timeSpan);
             break;
         }
 };        
 
+function onCloseModal (){
+showTimingNow();
+maxErrors = 5;
+timingFunction(timeSpan);
+}
 
 function resetTiming(timeSpan){
     endDate = (new Date().getTime()) + timeSpan;
 }
 
-function timingFunction (timeSpan){
+
+function timingFunction (timeSpan, pause){
     let now = new Date().getTime(); 
     endDate = (new Date().getTime()) + timeSpan;    
     let t = endDate - now;
     secs = t / 1000;
+	showTimingNow()
     
     let timer = setInterval(function() {
         now = new Date().getTime(); 
         t = endDate - now; 
         secs = t / 1000;
-        
+
         if (t >= 0){
         showTimingNow()
         } else {
@@ -148,9 +148,13 @@ function timingFunction (timeSpan){
         resetTiming(timeSpan);
         incorrectDeck(false)
         }
-        
     }, 100)
+	
+	if(pause == true){
+		clearInterval(timer)
+	}
 }
+
 
 firstCard.onclick = function() {
 	if(clickable == true){	

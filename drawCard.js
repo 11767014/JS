@@ -5,23 +5,40 @@ window.onload = onLoadGame();
 window.onresize = onResizeGame;
 
 
-let modal = document.getElementById("myModal");
+let startModal = document.getElementById("startModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let btn = document.getElementById("myBtn");
 
 // When the user clicks the button, open the modal 
-openModal = function() {
-  modal.style.display = "block";
+openStartModal = function() {
+  startModal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-closeModal = function() {
-  modal.style.display = "none";
+closeStartModal = function() {
+  startModal.style.display = "none";
 }
+
+let levelModal = document.getElementById("levelModal");
+
+// When the user clicks the button, open the modal 
+openLevelModal = function() {
+	levelModal.style.display = "block";
+	pause = true;
+}
+
+// When the user clicks on <span> (x), close the modal
+closeLevelModal = function(callback) {
+  levelModal.style.display = "none";
+  pause = false;
+  
+  if(level > 2){
+	  callback = onCloseModal();
+  }
+}
+
+
 
 let correct = new Audio();
 correct.src = "src/right.wav"

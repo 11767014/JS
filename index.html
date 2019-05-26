@@ -2,23 +2,24 @@
 <html>
 
 <head>
-	<title></title>
+	<title>Winsconisn Card Sorting Task</title>
 	<meta charset="UTF-8" />
 </head>
 
-<body onload="openMenu()">
+<body id = "indexPage" class="indexPage" >
+  <div class="welcome">
+  	<p id="titleText">Welcome to the WCST</p>
+	<p id="welcomeText"></p>
+	</div>
 
-<div id="menu" class="overlay">
-  <div class="overlay-content">
-    <b text> MENU </b>
-    <a href="classic.html">Classic</a>
-	  <a href="arcade.html">Arcade</a>
-  </div>
+
+<div class = buttonContainer>
+		<a href="classic.html" id="buttonClassic" class="indexButton">Classic</a>
+		<a href="arcade.html" id="buttonArcade" class="indexButton">Arcade</a>
 </div>
 
-    <link rel="stylesheet" type = "text/css" href="styles.css">
-
-    <script type="text/javascript" src="menu.js"></script>
+<link rel="stylesheet" type = "text/css" href="styles.css">
+<script type="text/javascript" src="index.js"></script>
 	
 	
 </body>

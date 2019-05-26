@@ -19,10 +19,19 @@
 
 <div id="menuButton" onclick="openMenu()">&#9776;</div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-	<p id="modalText"></p>
-	<button id="startButton" class="startButton" onclick="closeModal();">Start Game</button>
+<div id="startModal" class="modal">
+  <div class="modalContent">
+	<p id="modalText" class="modalText"></p>
+	<button id="startButton" class="startButton" onclick="closeStartModal();">
+	Start Game</button>
+  </div>
+</div>
+
+<div id="levelModal" class="modal">
+  <div class="modalContent" id="modalContentLevel">
+	<p id="modalTextLevel" class="modalText"></p>
+	<button id="startButton" class="startButton" onclick="closeLevelModal();">
+	Return to Game</button>
   </div>
 </div>
 
