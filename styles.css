@@ -363,7 +363,7 @@ height:70px;
 
 
 #buttonClassic{
-top: 425px;
+top: 500px;
 
 	-webkit-animation: floating 1.5s infinite ease-in-out;
 	-moz-animation: floating 1.5s infinite ease-in-out;
@@ -371,7 +371,7 @@ top: 425px;
 }
 
 #buttonArcade{
-top: 525px;
+top: 600px;
 
 	-webkit-animation: floating1 1.5s infinite ease-in-out;
 	-moz-animation: floating1 1.5s infinite ease-in-out;
@@ -475,4 +475,3 @@ text-align: center;
  .startButton:hover {
   background: #333333;
  }
- 
