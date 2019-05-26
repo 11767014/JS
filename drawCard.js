@@ -48,6 +48,11 @@ function gameOver() {
 };
 
 
+function gameOverClassic() {
+    openEndModal();
+    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> </br></br> This is the end of your game. Your score was " + score + " and you made " + prsvrnceErrors + " perseverance errors. </br></br> Well done! Do you want to try again?"
+};
+
 let correct = new Audio();
 correct.src = "src/right.wav"
 
