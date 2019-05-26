@@ -1,3 +1,13 @@
+html, body{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+    overflow: none;
+}
+
 body {
   background-color: black;
   font-family: 'Calibri', sans-serif;
@@ -219,12 +229,13 @@ height:70px;
   left: 0;
   top: 0;
   background-color: rgba(0,0,0,0.4);
+  height: 70%;
 }
 
 /* Modal Content */
 .modalContent {
 	background: #282828;
-	height: 650px;
+	height: 100%;
 	border-radius: 25px;
 	box-shadow: 3px 10px 10px 1px #101010;
 	margin: auto;
@@ -239,7 +250,6 @@ height:70px;
 }
 
 
-
 #modalContentLevel {
 	height: 400px;
 	width: 50%;
@@ -247,6 +257,12 @@ height:70px;
 	margin-right: auto;
 }
 
+#modalContentEnd {
+	height: 400px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .imageContainerExample {
   width: 400px;
@@ -277,6 +293,7 @@ height:70px;
  .modalText{
 	 font-size: 30px;
 	 text-align: center;
+     overflow-y: scroll;
  }
  
 
@@ -346,18 +363,18 @@ height:70px;
 
 
 #buttonClassic{
-top: 60%;
+top: 425px;
 
-	-webkit-animation: floating 1.5s infinite;
-	-moz-animation: floating 1.5s infinite;
+	-webkit-animation: floating 1.5s infinite ease-in-out;
+	-moz-animation: floating 1.5s infinite ease-in-out;
 	animation: floating 1.5s infinite ease-in-out;
 }
 
 #buttonArcade{
-top: 70%;
+top: 525px;
 
-	-webkit-animation: floating1 1.5s infinite;
-	-moz-animation: floating1 1.5s infinite;
+	-webkit-animation: floating1 1.5s infinite ease-in-out;
+	-moz-animation: floating1 1.5s infinite ease-in-out;
 	animation: floating1 1.5s infinite ease-in-out;
 
 }
