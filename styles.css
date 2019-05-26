@@ -300,9 +300,10 @@ height:70px;
   margin-left: 50%;
   margin-right: 50%;
   bottom: 0%;
-  border-radius: 3px;
+  border-radius: 2px;
   color: white;
   font-size: 30px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
   	-webkit-animation: pulsing1 3s infinite;
 	-moz-animation: pulsing1 3s infinite;
@@ -310,34 +311,17 @@ height:70px;
  }
  
  .startButton:hover {
-	-webkit-animation: pulsing 0.5s 1;
-	-moz-animation: pulsing 0.5s 1;
-	animation: pulsing 0.5s infinite;
+  background: #FFA500;
+ ;
  }
 
-@keyframes pulsing {
-	0% {
-		transform: scaleY(1) scaleX(1) translateX(-50%);
-	}
-	20% {
-	}
-	70% {
-		transform: scaleY(1.8) scaleX(1.4) translateX(-40%);
-	}
-	80% {
-		transform: scaleY(1.8) scaleX(1.4) translateX(-40%);
-	}
-	90% {
-		transform: scaleY(1) scaleX(1) translateX(-50%);
-	}
-}
 
 @keyframes pulsing1 {
 	0% {
 		transform: scale(1) translateX(-50%);
 	}
 	5% {
-		transform: scale(1.1) translateX(-50%);
+		transform: scale(1.1) translateX(-40%);
 	}
 	10% {
 		transform: scale(1) translateX(-50%);
@@ -346,19 +330,19 @@ height:70px;
 		transform: scale(1) translateX(-50%);
 	}
 	50% {
-		transform: scale(1.1) translateX(-50%);
+		transform: scale(1.1) translateX(-40%);
 	}
 	55% {
 		transform: scale(1) translateX(-50%);
 	}
 	60% {
-		transform: scale(1.05) translateX(-50%);
+		transform: scale(1.05) translateX(-45%);
 	}
 	75% {
 		transform: scale(1) translateX(-50%);
 	}
 	80% {
-		transform: scale(1.05) translateX(-50%);
+		transform: scale(1.05) translateX(-45%);
 	}
 	85% {
 		transform: scale(1) translateX(-50%);
