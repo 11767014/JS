@@ -7,10 +7,6 @@ window.onresize = onResizeGame;
 
 let startModal = document.getElementById("startModal");
 
-// Get the button that opens the modal
-let btn = document.getElementById("myBtn");
-
-// When the user clicks the button, open the modal 
 openStartModal = function() {
   startModal.style.display = "block";
 }
@@ -20,24 +16,36 @@ closeStartModal = function() {
   startModal.style.display = "none";
 }
 
+openEndModal = function() {
+  endModal.style.display = "block";
+     clearInterval(timer);
+}
+
+closeEndModal = function() {
+  endModal.style.display = "none";
+}
+
 let levelModal = document.getElementById("levelModal");
 
 // When the user clicks the button, open the modal 
 openLevelModal = function() {
 	levelModal.style.display = "block";
-	pause = true;
+     clearInterval(timer);
 }
 
 // When the user clicks on <span> (x), close the modal
 closeLevelModal = function(callback) {
   levelModal.style.display = "none";
-  pause = false;
   
   if(level > 2){
 	  callback = onCloseModal();
   }
 }
 
+function gameOver() {
+    openEndModal();
+    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> </br></br> This is the end of your game. Your score was " + score + " and you made " + prsvrnceErrors + " perseverance errors. You reached level " + level + ". </br></br> Well done! Do you want to try again?"
+};
 
 
 let correct = new Audio();
@@ -342,5 +350,3 @@ function onResizeGame(){
     onLoadGame();
     createCard(contextNewCard, newCard, randomColor = results[0], randomShape = results[1], randomNum = results[2]);    
 }
-
-     
