@@ -20,13 +20,20 @@
 <div id="menuButton" onclick="openMenu()">&#9776;</div>
 
 <div id="startModal" class="modal">
-  <div class="modal-content">
-	<p id="modalText"></p>
+  <div class="modalContent">
+	<p id="modalText" class="modalText"></p>
 	<button id="startButton" class="startButton" onclick="closeStartModal();">
 	Start Game</button>
   </div>
 </div>
-
+    
+<div id="endModal" class="modal">
+  <div class="modalContent" id="modalContentEnd">
+	<p id="endModalText" class="modalText"></p>
+	<button id="startButton" class="startButton" onclick="location.reload()">
+	Restart Game</button>
+  </div>
+</div>
 
  <div id="imageContainer" align = "center">    
         <img src="src/card1.png" id="firstCard" class="card">
