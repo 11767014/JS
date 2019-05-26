@@ -17,7 +17,11 @@ let clickable = true;
 let prsvrnceErrors = 0;
 
 results = createCard(contextNewCard, newCard);
-showScoreNow();
+
+if(round == 10){
+alert("end of game")
+}
+
 
 function onRound(){
  if (maxIteration < roundScore.length) {
@@ -65,7 +69,6 @@ firstCard.onclick = function() {
 			results = incorrectDeck(cardOne);
 		  }
 		  onRound();
-          showScoreNow();
 		  }
 };
 
@@ -78,7 +81,6 @@ secondCard.onclick = function() {
 			results = incorrectDeck(cardTwo);
 		  }
 		  onRound();
-		  showScoreNow();
     }
 };
 
@@ -90,7 +92,6 @@ thirdCard.onclick = function() {
 			results = incorrectDeck(cardThree);
 		  }
 		  onRound();
-		  showScoreNow();
 	}
 };
 
@@ -102,6 +103,5 @@ fourthCard.onclick = function() {
 			results = incorrectDeck(cardFour);
 		  }
 		  onRound();
-		  showScoreNow();
     }
 };
