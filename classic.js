@@ -24,7 +24,7 @@ function onRound(){
  if (maxIteration < roundScore.length) {
     oldRule = rule;
 	lastThree = roundScore.slice((maxIteration-3),maxIteration)
-    if(compareArrays(lastThree, [1,1,1]) == false && compareArrays(lastThree, [1,0,1]) == false && compareArrays(lastThree, [1,1,0]) == false){
+    if(compareArrays(lastThree, [1,1,1]) == false){
         gameOver();
         }
     while (oldRule == rule) {
