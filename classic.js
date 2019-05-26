@@ -18,18 +18,14 @@ let prsvrnceErrors = 0;
 
 results = createCard(contextNewCard, newCard);
 
-if(round == 10){
-alert("end of game")
+if(round == 5){
+    gameOverClassic();
 }
-
 
 function onRound(){
  if (maxIteration < roundScore.length) {
     oldRule = rule;
 	lastThree = roundScore.slice((maxIteration-3),maxIteration)
-    if(compareArrays(lastThree, [1,1,1]) == false){
-        gameOver();
-        }
     while (oldRule == rule) {
       rule = randomNumber(0, 2);
     }
@@ -54,10 +50,6 @@ function incorrectDeck(clickedCard) {
                  prsvrnceErrors = prsvrnceErrors + 1;
                 }
 	return resultsDeckIncorrect;
-}
-
-function gameOver() {
-    alert("Game over! Your score was " + score + ". You made " + prsvrnceErrors + " perseverance errors.")
 }
 
 
