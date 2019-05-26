@@ -309,8 +309,6 @@ function onLoadGame(){
 	let screenWidth =  document.documentElement.clientWidth;
 	let screenHeight = document.documentElement.clientHeight;
 	    
-    let backUpCanvas = document.getElementById("backUpCanvas");
-	let backUpContext = backUpCanvas.getContext("2d");
 	if(screenWidth > screenHeight){
 		size = 0.9*screenHeight;
 		} else {
