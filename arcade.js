@@ -6,7 +6,7 @@ function showTimingNow(){
 document.getElementById("showTiming").innerHTML = "time: " + roundDec(secs, 0);
 }
 
-window.onload = openLevelModal;
+window.onload = openStartModal();
 document.getElementById("modalText").innerHTML = "<b>ARCADE GAME</b> </br></br> Like a classical game, in an arcade game you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule. </br></br> However, in an arcade game you follow several levels. Each level is a bit more difficult than the last."
 
 // start of the game
@@ -15,7 +15,7 @@ let rule = randomNumber(0, 2);
 let maxIteration = 5;
 let oldRule = rule;
 let score = 0;
-let level = 3;
+let level = 1;
 let round = 0;
 let errors = 0;
 let lastThree = 0;
@@ -85,11 +85,6 @@ function incorrectDeck(clickedCard) {
     showScoreNow()
 }
 
-function gameOver() {
-    alert("Game over! Your score was " + score + ". You made " + prsvrnceErrors + " perseverance errors.")
-    location.reload() 
-};
-
 function roundDec(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
@@ -97,7 +92,6 @@ function roundDec(value, decimals) {
 function levelUp(){
     switch(level){
         case 1:
-            maxErrors = 5;
             break;
         case 2:
             maxErrors = 5;
@@ -128,6 +122,7 @@ function resetTiming(timeSpan){
     endDate = (new Date().getTime()) + timeSpan;
 }
 
+let timer = 0;
 
 function timingFunction (timeSpan, pause){
     let now = new Date().getTime(); 
@@ -136,7 +131,7 @@ function timingFunction (timeSpan, pause){
     secs = t / 1000;
 	showTimingNow()
     
-    let timer = setInterval(function() {
+    timer = setInterval(function() {
         now = new Date().getTime(); 
         t = endDate - now; 
         secs = t / 1000;
