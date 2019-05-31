@@ -1,5 +1,5 @@
 // if the window is loaded, a modal with instructions opens
-//window.onload = openModal(startModal, false);
+window.onload = openModal(startModal);
 document.getElementById("startModalText").innerHTML = "<b>ARCADE GAME</b> <br><br/> Like a classical game, in an arcade game you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. <br><br/> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. <br><br/> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule. <br><br/> However, in an arcade game you follow several levels. Each level is a bit more difficult than the last."
 
 // Global variables that are declared at the start of each Arcade game
@@ -164,6 +164,3 @@ function timingFunction (timeSpan){
         }
     }, 100)
 }
-
-// At the start of the game, startTrial is executed
-startTrial();
