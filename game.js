@@ -51,7 +51,7 @@ let endModal = document.getElementById("endModal");     // endModal is the modal
 // Function to make the modal visible (e.g. opening the modal)
 openModal = function(elem) {
 	elem.style.display = "block";     	// elem is the modal of interest
-	if(level > 2){               		// arcade game levels >2 contain a timer that should stop if the modal is opened
+	if(level > 3){               		// arcade game levels >2 contain a timer that should stop if the modal is opened
         clearInterval(timer);
     }
 }
@@ -60,7 +60,7 @@ openModal = function(elem) {
 closeModal = function(elem) {    	
 	elem.style.display = "none";	// elem is the modal of interest
 	if(level > 2){					// arcade game levels >2 contain a timer that should restart if the modal is closed
-		timingFunction(timeSpan)	
+		timingFunction (timeSpan)	
 	}
 };
 
@@ -76,7 +76,7 @@ function openMenu() {
 function closeMenu() {
 	document.getElementById("menu").style.height = "0%";
     if (level > 2){					// arcade game levels >2 contain a timer that should restart if the menu is closed
-		timingFunction(timeSpan)	
+		timingFunction (timeSpan)	
 	}
 }
 
@@ -100,7 +100,7 @@ function debugInConsole(rulesOnly){
 }
 
 // If desired, debugInConsole can be executed
-// debugInConsole()
+debugInConsole()
 
 // Function to change the rule
 function changeRule(){
@@ -115,7 +115,7 @@ function changeRule(){
     while (oldRule == rule);
 	
 	// if desired, display the new rule and old rule in the console
-    // debugInConsole()
+    debugInConsole()
 	
 	// if the level is one but not at the start of the very first round, alert the player of the new rule
 	if (level == 1 && round != 0){

@@ -1,9 +1,6 @@
-// Try the code on this page for errors
-try {
-	
 // if the window is loaded, a modal with instructions opens
 //window.onload = openModal(startModal, false);
-document.getElementById("startModalText").innerHTML = "<b>ARCADE GAME</b> </br></br> Like a classical game, in an arcade game you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule. </br></br> However, in an arcade game you follow several levels. Each level is a bit more difficult than the last."
+document.getElementById("startModalText").innerHTML = "<b>ARCADE GAME</b> <br><br/> Like a classical game, in an arcade game you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. <br><br/> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. <br><br/> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule. <br><br/> However, in an arcade game you follow several levels. Each level is a bit more difficult than the last."
 
 // Global variables that are declared at the start of each Arcade game
 let maxErrors							// on levels > 1, maxErrors reflects the maximum number of errors to be made per level
@@ -14,12 +11,12 @@ let levelRound = 1;             		// levelRound contains the number of rounds a 
 // Displays score,level and perseverance errors in a modal
 function gameOver() {
     openModal(endModal, true);
-    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> </br></br> This is the end of your game. Your score was " + score + " and you made " + errors + "errors, of which " + prsvrnceErrors + " were perseverance errors. You reached level " + level + " and discovered " + round + " rules. </br></br> Well done! Do you want to try again?"
+    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> <br><br/> This is the end of your game. Your score was " + score + " and you made " + errors + " errors, of which " + prsvrnceErrors + " were perseverance errors. You reached level " + level + " and discovered " + round + " rules. <br><br/> Well done! Do you want to try again?"
 };
 
 // Function to show the current score, number of errors and level
 function showScoreNow(){
-	document.getElementById("showScore").innerHTML = "score: " + score + " </br> errors: " + levelErrors + " </br> level: " + level;
+	document.getElementById("showScore").innerHTML = "score: " + score + " <br/> errors: " + levelErrors + " <br/> level: " + level;
 }
 
 // Function that specifies what happens at the start of each trial
@@ -34,32 +31,32 @@ function startTrial(){
 			// if level is 1, the maxmimum number of errors is infinite.
 			case 1:
 				maxErrors = Infinity;
-				document.getElementById("modalTextLevel").innerHTML = "<b>First level!</b> </br></br> In the first level, you receive a warning when the rule changes. Try to find the new hidden rule and try not to make too many errors."
+				document.getElementById("modalTextLevel").innerHTML = "<b>First level!</b> <br><br/> In the first level, you receive a warning when the rule changes. Try to find the new hidden rule and try not to make too many errors."
 				break;
 
 			// if level is 2, the maxmimum number of errors is 5.
 			case 2:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> The second level is like a classical game. Try to find the hidden rule, but beware not to make more than 5 errors."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> The second level is like a classical game. Try to find the hidden rule, but beware not to make more than 5 errors."
 				maxErrors = 5;
 				break;
 
 			// if level is 3, the maxmimum number of errors is 5 and the time to sort a card is 5.5 seconds
 			case 3:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> In the third level, your time is limited. Try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 5 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> In the third level, your time is limited. Try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 5 seconds, the card will automatically count as an error."
 				timeSpan = 5500;
 				maxErrors = 5;
 				break;
 				
 			// if level is 4, the maxmimum number of errors is 4 and the time to sort a card is 4 seconds
 			case 4:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> Well done so far! Again, try to find the hidden rule, but beware not to make more than 4 errors. If you take more than 3 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> Well done so far! Again, try to find the hidden rule, but beware not to make more than 4 errors. If you take more than 3 seconds, the card will automatically count as an error."
 				timeSpan = 3500;
 				maxErrors = 4;   
 				break;
 				
 			// if level is 5, the maximum number of errors is 3 and the time to sort a card is 2.5 seconds
 			case 5:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> </br></br> This is the final level. Try to find the hidden rule, but beware not to make more than 3 errors. If you take more than 2 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> This is the final level. Try to find the hidden rule, but beware not to make more than 3 errors. If you take more than 2 seconds, the card will automatically count as an error."
 				timeSpan = 2500;
 				maxErrors = 3;   
 				break;
@@ -170,9 +167,3 @@ function timingFunction (timeSpan){
 
 // At the start of the game, startTrial is executed
 startTrial();
-
-// catch all errors in a general error message
-} catch (err){
-	// alert("You encountered the following error: " + err.stack + ". Sorry for the inconvenience! Please report the issue at https://github.com/11767014/JS/issues")
-	alert("You encountered the following error: \"" + err + "\". Sorry for the inconvenience! Please report the issue to Eline")
-}

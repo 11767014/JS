@@ -216,8 +216,8 @@ html, body{
 	margin: auto;
 	padding: 20px;
 	width: 80%;
-    overflow-y: scroll; 	/* Ensure that the length of the modal is always scrollable */
 	text-align:center;
+    overflow-y: scroll; 	/* Ensure that the length of the modal is always scrollable */
 
 	/* Run the animation open modal when the modal appears */
 	-moz-animation: openModal 0.3s 1; 		/* Ensure that the animation runs in different browsers */
@@ -245,8 +245,9 @@ html, body{
 
 /* Set the font size and alignment of modal text*/
  .modalText{
-	 font-size: 30px;
-	 text-align: center;
+    overflow: hidden; 		/* Ensure that the length of the modal is never scrollable */
+	font-size: 30px;
+	text-align: center;
  }
  
 /* Set the specific size and margins of the level modal (displayed upon new level) */
