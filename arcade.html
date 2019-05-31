@@ -21,8 +21,8 @@
 
 <div id="startModal" class="modal">
   <div class="modalContent">
-	<p id="modalText" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="closeStartModal();">
+	<p id="startModalText" class="modalText"></p>
+	<button id="startButton" class="startButton" onclick="closeModal(startModal);">
 	Start Game</button>
   </div>
 </div>
@@ -30,8 +30,16 @@
 <div id="levelModal" class="modal">
   <div class="modalContent" id="modalContentLevel">
 	<p id="modalTextLevel" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="closeLevelModal();">
+	<button id="startButton" class="startButton" onclick="closeModal(levelModal);">
 	Return to Game</button>
+  </div>
+</div>    
+
+<div id="endModal" class="modal">
+  <div class="modalContent" id="modalContentEnd">
+	<p id="endModalText" class="modalText"></p>
+	<button id="startButton" class="startButton" onclick="location.reload()">
+	Restart Game</button>
   </div>
 </div>
 
@@ -40,16 +48,15 @@
         <img src="src/card2.png" id="secondCard" class="card">
         <img src="src/card3.png" id="thirdCard" class="card">
         <img src="src/card4.png" id="fourthCard" class="card">
-        <canvas id="newCard" class="newCard"></canvas>
-        <canvas id="backUpCanvas"></canvas>
+        <canvas id="playCard" class="playCard"></canvas>
      	<p id="showTiming" ></p>
 		<p id="showScore" ></p>
 	</div>
     
     <link rel="stylesheet" type = "text/css" href="styles.css">
 
-    <script type="text/javascript" src="menu.js"></script>
 	<script type="text/javascript" src="drawCard.js"></script>
+	<script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="arcade.js"></script>
 	
 	

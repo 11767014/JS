@@ -1,107 +1,36 @@
-function showScoreNow(){
-document.getElementById("showScore").innerHTML = "score: " + score;
-}
+// if the window is loaded, a modal with instructions opens
+window.onload = openModal(startModal, false);
+document.getElementById("startModalText").innerHTML = "<b>CLASSICAL GAME</b> </br></br> During a classical game, you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule."
 
-window.onload = openStartModal();
-document.getElementById("modalText").innerHTML = "<b>CLASSICAL GAME</b> </br></br> During a classical game, you are asked to organize cards according to a hidden rule. You assign the cards that appear at the bottom of your screen to one of the four decks at the top of your screen by clicking the right deck. </br></br> Each card belongs to just one deck. You have to choose the one that fits the current rule. You can learn the rule by paying attention to the feedback that you get from the computer. If you sort a card right, you will hear a bell and your score goes up. If you sort a card wrong, you hear a buzzer and your score stays the same. </br></br> After several rounds, the rule changes. Your task is to find the new rule as quickly as you can, and sort the following cards according to this new rule."
-
-// start of the game
-let rule = randomNumber(0, 2);
-let maxIteration = randomNumber(9,11)
-let oldRule = rule;
-let score = 0;
-let round = 0;
-let lastThree = 0;
-let roundScore = [];
-let clickable = true;
-let prsvrnceErrors = 0;
-
-results = createCard(contextNewCard, newCard);
-showScoreNow();
-
-function onRound(){
- if (maxIteration < roundScore.length) {
-    oldRule = rule;
-	lastThree = roundScore.slice((maxIteration-3),maxIteration)
-    if(compareArrays(lastThree, [1,1,1]) == false){
+// function that defines what happens at the end of each trial
+function endTrial(){
+    // count the trial
+    nTrial = nTrial + 1;
+    // after 64 trials, the game is ended
+    if(nTrial == 64){
         gameOver();
-        }
-    while (oldRule == rule) {
-      rule = randomNumber(0, 2);
     }
-    maxIteration = 4;
-    round++;
-    roundScore = [];
-  }
+    
+    // store the length of the round score in nIter for convenience
+    let nIter = roundScore.length;    
+    if (nIter > 9) {
+        // check whether the last 10 trials were correct
+        let lastTen = (roundScore.slice((nIter - 10),nIter))
+            if (compareArrays(lastTen, [1,1,1,1,1,1,1,1,1,1]) == true){
+ 				// if so, change the rule
+				changeRule(); 
+                // count another round, reset the round score and the nIter
+                round = round + 1;
+                roundScore = [];
+                nIter = 0;
+				
+            }
+    }
 };
 
-function correctDeck(factor, clickedCard) {
-	move(factor, clickedCard);
-	correct.play();
-	score = score+1;
-	roundScore.push(1);
-}
-
-function incorrectDeck(clickedCard) {
-	incorrect.play();    
-	roundScore.push(0);
-	resultsDeckIncorrect = createCard(contextNewCard, newCard);
-    if(results[oldRule] == clickedCard[oldRule]){
-                 prsvrnceErrors = prsvrnceErrors + 1;
-                }
-	return resultsDeckIncorrect;
-}
-
+// Function that defines what happens at game over in a classic game
+// Displays score and perseverance errors in a modal
 function gameOver() {
-    alert("Game over! Your score was " + score + ". You made " + prsvrnceErrors + " perseverance errors.")
-}
-
-
-firstCard.onclick = function() {
-	if(clickable == true){	
-		if (results[rule] == cardOne[rule]) {
-			correctDeck("firstCard", firstCard);
-			} else {
-			results = incorrectDeck(cardOne);
-		  }
-		  onRound();
-          showScoreNow();
-		  }
-};
-
-
-secondCard.onclick = function() {
-	if(clickable == true){
-		if (results[rule] == cardTwo[rule]) {
-			correctDeck("secondCard", secondCard);
-			} else {
-			results = incorrectDeck(cardTwo);
-		  }
-		  onRound();
-		  showScoreNow();
-    }
-};
-
-thirdCard.onclick = function() {
-	if(clickable == true){
-		if (results[rule] == cardThree[rule]) {
-			correctDeck("thirdCard", thirdCard);
-			} else {
-			results = incorrectDeck(cardThree);
-		  }
-		  onRound();
-		  showScoreNow();
-	}
-};
-
-fourthCard.onclick = function() {
-	if(clickable == true){
-		if (results[rule] == cardFour[rule]) {
-			correctDeck("fourthCard", fourthCard);
-			} else {
-			results = incorrectDeck(cardFour);
-		  }
-		  onRound();
-		  showScoreNow();
-    }
+    openModal(endModal, false);
+    document.getElementById("endModalText").innerHTML = "<b>END OF THE GAME</b> </br></br> This is the end of your game. Your score was " + score + ". You made " + errors + " errors, " + prsvrnceErrors + " of which were perseverance errors. You discovered a total of " + round + " hidden rules. </br></br> Well done! Do you want to try again?"
 };
