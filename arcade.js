@@ -68,7 +68,7 @@ function startTrial(){
 		if (level == 5){					// if level is 5, this is the end of the game
 			gameOver();							
 		} else {							// otherwise level goes up, errors are reset, rule is changed, and level-specific actions are undertaken
-			level = level + 3;
+			level = level + 1;
 			levelErrors = 0;		
 			levelRound = 0;
 			checkLevel();			

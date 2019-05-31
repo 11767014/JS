@@ -1,2 +1,0 @@
-
-document.getElementById("welcomeText").innerHTML = "The Wisconsin Card Sorting Task is a cognitive task. By practicing regularly, you can train your executive functions. </br> </br> Please choose a game type by clicking one of the buttons below."
