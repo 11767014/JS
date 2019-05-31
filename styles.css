@@ -1,4 +1,12 @@
-/* GENERAL */
+/* This file contains the following subsections: */
+/* 1. GENERAL */
+/* 2. INDEX PAGE */
+/* 3. GAMES */
+/* 3A. MODALS */
+/* 3B. MENU */
+/* 4. ARCADE SPECIFIC */
+
+/* 1. GENERAL */
 /* Set the position, scrolling behavior, font and background-color of the body */
 html, body{
 	position: absolute;
@@ -13,7 +21,7 @@ html, body{
 }
 
 
-/* INDEX PAGE */
+/* 2. INDEX PAGE */
 /* Create a background image (gradient) on the index page */
 #indexPage{
 	height: 100vh;
@@ -150,7 +158,7 @@ html, body{
 }
 
 
-/* GAMES */
+/* 3. GAMES */
 /* Set the position of the image container, which contains the most important elements of the game */
 #imageContainer {
 	position: relative;
@@ -196,7 +204,7 @@ html, body{
     left: 80%;
 }
 
-/* MODALS */
+/* 3A. MODALS */
 /* Set the position and the color of the background of the modal */
 .modal {
 	display: none; 			/* Hidden by default */
@@ -268,8 +276,30 @@ html, body{
 	margin-right: auto;
 }
 
+/* Set the specific size and margins of the modal buttons*/
+  .modalButton {
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0%;
+	position: relative;
+	bottom: 0%;
+	background: #282828;
+	border-radius: 25px;
+	width: 180px;
+	padding: 20px 20px;
+	cursor: pointer;
+	color: white;
+	font-size: 30px;
+	box-shadow: 3px 10px 1px 1px #101010;
+ }
+ 
+ /* Set the background color of modal buttons on hover*/
+ .modalButton:hover {
+  background: #333333;
+ }
 
-/* MENU */
+
+/* 3B. MENU */
 /* Set the position, color and size of the menu button */
 #menuButton{
 	position: fixed;
@@ -338,7 +368,7 @@ html, body{
 }
 
 
-/* ARCADE SPECIFIC */
+/* 4. ARCADE SPECIFIC */
 /* Set the position and size of the show score element in arcade games */
 #showScore {
     text-align: left;
@@ -357,29 +387,3 @@ html, body{
     color: red;
 }
 
- 
- 
-  .modalButton {
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 0%;
-	position: relative;
-	bottom: 0%;
-	background: #282828;
-	border-radius: 25px;
-	width: 180px;
-	padding: 20px 20px;
-	cursor: pointer;
-	color: white;
-	font-size: 30px;
-	box-shadow: 3px 10px 1px 1px #101010;
-	
-	-webkit-animation: pulsing 3s infinite;
-	-moz-animation: pulsing 3s infinite;
-	animation: pulsing 7s infinite;
-	
- }
- 
- .modalButton:hover {
-  background: #333333;
- }
