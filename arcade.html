@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title></title>
-	<meta charset="UTF-8" />
-</head>
+	<head>
+		<title>Winsconisn Card Sorting Task Arcade</title>
+		<meta charset="UTF-8" />
+	</head>
     
-<body>
+	<body>
+		<div id="menu" class="menuOverlay">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+			<div class="menuContent">
+				<b text> MENU </b>
+				<a href="index.html">Homepage</a>
+				<a href="classic.html">Classic</a>
+				<a href="arcade.html">Arcade</a>
+			</div>
+		</div>
 
-<div id="menu" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-  <div class="overlay-content">
-    <b text> MENU </b>
-    <a href="classic.html">Classic</a>
-    <a href="arcade.html">Arcade</a>
-  </div>
-</div>
+		<div id="menuButton" onclick="openMenu()">&#9776;</div>
 
-<div id="menuButton" onclick="openMenu()">&#9776;</div>
+		<div id="startModal" class="modal">
+			<div class="modalContent">
+				<p id="startModalText" class="modalText"></p>
+				<button id="modalButton" class="modalButton" onclick="closeModal(startModal);">Start Game</button>
+			</div>
+		</div>
+			
+		<div id="levelModal" class="modal">
+			<div class="modalContent" id="modalContentLevel">
+				<p id="modalTextLevel" class="modalText"></p>
+				<button id="modalButton" class="modalButton" onclick="closeModal(levelModal);">Return to Game</button>
+		  </div>
+		</div>    
 
-<div id="startModal" class="modal">
-  <div class="modalContent">
-	<p id="startModalText" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="closeModal(startModal);">
-	Start Game</button>
-  </div>
-</div>
-    
-<div id="levelModal" class="modal">
-  <div class="modalContent" id="modalContentLevel">
-	<p id="modalTextLevel" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="closeModal(levelModal);">
-	Return to Game</button>
-  </div>
-</div>    
+		<div id="endModal" class="modal">
+			<div class="modalContent" id="modalContentEnd">
+				<p id="endModalText" class="modalText"></p>
+				<button id="modalButton" class="modalButton" onclick="location.reload()">Restart Game</button>
+			</div>
+		</div>
 
-<div id="endModal" class="modal">
-  <div class="modalContent" id="modalContentEnd">
-	<p id="endModalText" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="location.reload()">
-	Restart Game</button>
-  </div>
-</div>
-    
-<div id="endModal" class="modal">
-  <div class="modalContent" id="modalContentEnd">
-	<p id="endModalText" class="modalText"></p>
-	<button id="startButton" class="startButton" onclick="location.reload()">
-	Restart Game</button>
-  </div>
-</div>
 
- <div id="imageContainer" align = "center">    
-        <img src="src/card1.png" id="firstCard" class="card">
-        <img src="src/card2.png" id="secondCard" class="card">
-        <img src="src/card3.png" id="thirdCard" class="card">
-        <img src="src/card4.png" id="fourthCard" class="card">
-        <canvas id="playCard" class="playCard"></canvas>
-     	<p id="showTiming" ></p>
-		<p id="showScore" ></p>
-	</div>
-    
-    <link rel="stylesheet" type = "text/css" href="styles.css">
+		<div id="imageContainer" align = "center">    
+			<img src="src/card1.png" id="firstCard" class="card">
+			<img src="src/card2.png" id="secondCard" class="card">
+			<img src="src/card3.png" id="thirdCard" class="card">
+			<img src="src/card4.png" id="fourthCard" class="card">
+			<canvas id="playCard" class="playCard"></canvas>
+			<p id="showTiming" ></p>
+			<p id="showScore" ></p>
+		</div>
+		
+		<link rel="stylesheet" type = "text/css" href="styles.css">
 
-	<script type="text/javascript" src="drawCard.js"></script>
-	<script type="text/javascript" src="game.js"></script>
-    <script type="text/javascript" src="arcade.js"></script>
-	
-	
-</body>
+		<script type="text/javascript" src="drawCard.js"></script>
+		<script type="text/javascript" src="game.js"></script>
+		<script type="text/javascript" src="arcade.js"></script>
+	</body>
 
 </html>

@@ -1,339 +1,90 @@
+/* GENERAL */
+/* Set the position, scrolling behavior, font and background-color of the body */
 html, body{
-    position: absolute;
+	position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    
-    overflow: none;
+    overflow: none;		/* no scrolling by default*/
+	background-color: black;
+	font-family: 'Calibri', sans-serif;
+	color: white;
 }
 
-body {
-  background-color: black;
-  font-family: 'Calibri', sans-serif;
-  color: white;
-}
 
+/* INDEX PAGE */
+/* Create a background image (gradient) on the index page */
 #indexPage{
-height: 100vh;
-background-image: linear-gradient(0deg, #000000, #181818, #000000);
+	height: 100vh;
+	background-image: linear-gradient(0deg, #000000, #181818, #000000);
 }
 
-#menuButton{
-	position: fixed;
-	top: 0px;
-    font-size:50px;
-    cursor:pointer;
-    color:white;
-    width:50px;
-    height:50px;
+/* Center-align the text in the welcome element*/
+.welcome{
+	text-align: center;
 }
 
-#imageContainer {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3%;
-}
-
-#showScore {
-    text-align: left;
-	position: absolute;
-	left: 0%;
-	bottom: 0%;
-	font-size: 30px;
-}
-
-#showTiming {
-	position: absolute;
-	left: 0%;
-    bottom: 120px;
-	font-size: 30px;
-    color: red;
-}
-
-.playCard{
-  z-index: 1;
-  position: absolute;
-  right: 0%;
-  bottom: 0%
-}
-
-.card{
-  z-index: 0;
-  width: 20%;
-  height: 35%;
-  position: absolute;
-  cursor:pointer;
-}
-
-#firstCard {
-    left: 0%;
-}
-
-#secondCard {
-    left: 27%;
-}
-
-#thirdCard {
-    left: 53%;
-}
-
-#fourthCard {
-    left: 80%;
-}
-
-.title{
-    font-size: 50px;
-    margin-bottom: 15px;
-}
-
-.introText{
-    font-size: 35px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.text{
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-}
-
-.overlay {
-  height: 0%;
-  width: 100%;
-  position: fixed;
-  z-index: 4;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
-  overflow-y: hidden;
-  transition: 0.5s;
-}
-
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay b {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 40px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-}
-
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
-
-@media screen and (max-height: 450px) {
-  .overlay {overflow-y: auto;}
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
-  }
-}
-
-#arrowImg{
-width:70px;
-height:70px;
-}
-
-.arrow {
-  position: fixed;
-  left:50%;
-  z-index: 3;
-  bottom: -5%;
-  opacity: 0.5;
-  -moz-animation: bounce2 3s infinite;
-  -webkit-animation: bounce2 3s infinite;
-  animation: bounce2 5s infinite;
-}
-
-@keyframes bounce2 {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  40%{
-    transform: translateY(-20px)
-  }
-  50% {
-    opacity: 0.5;
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.moveCard {  
-  position: relative;
-  z-index: 1;
-    
-  -moz-animation: move 4s infinite;
-  -webkit-animation: move 4s infinite; /* Safari 4.0 - 8.0 */
-  animation: move 4s infinite;
-}
-
-.button {
-  position: relative;
-  width: 100px;
-  padding: 10px 15px;
-  border: 3px solid #818181;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  background-color: rgba(0,0,0,0.4);
-  height: 70%;
-}
-
-/* Modal Content */
-.modalContent {
+/* Set the position, size, font and color of the text in the title of the index page*/
+ #titleText{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
 	background: #282828;
-	height: 100%;
 	border-radius: 25px;
-	box-shadow: 3px 10px 10px 1px #101010;
-	margin: auto;
+	margin-top: 5%;
+	font-size: 50px;
+	position: relative;
+	box-shadow: 3px 10px 1px 1px #101010;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+ }
+
+/* Set the position, size, font and color of the text in the title of the index page*/
+ #welcomeText{
+	background: #282828;
+	border-radius: 25px;
 	padding: 20px;
-	width: 80%;
-	overflow: auto;
-	text-align:center;
-
-	-moz-animation: openModal 0.3s 1;
-	-webkit-animation: openModal 0.3s 1; /* Safari 4.0 - 8.0 */
-	animation: openModal 0.3s 1;
-}
-
-
-#modalContentLevel {
-	height: 400px;
-	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-#modalContentEnd {
-	height: 400px;
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.imageContainerExample {
-  width: 400px;
-  height: 250px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-@keyframes openModal {
-	0% {
-	opacity: 0;
-	-webkit-transform: scale(0.7);
-	-moz-transform: scale(0.7);
-	-ms-transform: scale(0.7);
-	transform: scale(0.7);
-  }
-  100% {
-	opacity: 1;
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
-  }
-}
-
- .modalText{
-	 font-size: 30px;
-	 text-align: center;
-     overflow-y: scroll;
+	margin-top: 3%;
+	width: 70%;
+	font-size: 30px;
+	position: relative;
+	box-shadow: 3px 10px 1px 1px #101010;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
  }
  
-
-
-@keyframes pulsing {
-	0% {
-		transform: scale(1) ;
-	}
-	5% {
-		transform: scale(1.02);
-	}
-	10% {
-		transform: scale(1);
-	}
-	45% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.02);
-	}
-	55% {
-		transform: scale(1);
-	}
-	60% {
-		transform: scale(1.04);
-	}
-	75% {
-		transform: scale(1);
-	}
-	80% {
-		transform: scale(1.04);
-	}
-	85% {
-		transform: scale(1);
-	}
-	100% {
-		transform: scale(1);
-	}
+/* Center-align the buttons in the buttonContainer element */
+ .buttonContainer { 
+	text-align: center;
 }
 
+/* Set the color, size, position, margin and padding of the buttons on the index page */
+ .indexButton {
+ 	text-decoration: none;
+	position: absolute;
+	background: #282828;
+	border-radius: 25px;
+	width: 180px;
+	padding: 20px 20px;
+	cursor: pointer;
+	color: white;
+	font-size: 30px;
+	box-shadow: 3px 10px 1px 1px #101010;
+	
+	-moz-transform: translate(-50%, -50%); 		/* ensure that the middle of the button is in the middle of the page in different browsers */
+	-ms-transform: translate(-50%, -50%); 		/* ensure that the middle of the button is in the middle of the page in different browsers */
+	-webkit-transform: translate(-50%, -50%); 	/* ensure that the middle of the button is in the middle of the page in different browsers */
+	transform: translate(-50%, -50%);	 		/* ensure that the middle of the button is in the middle of the page */
+ }
+ 
+ /* If an index button is hovered, the background becomes lighter */
+ .indexButton:hover {
+	background: #333333;
+}
+
+/* Create two separate animations for the buttons, so that they float asynchronous*/
+/* First animation (classic button) */
 @keyframes floating {
 	0% {
 		margin-top: 0%;
@@ -347,6 +98,7 @@ height:70px;
 	}
 }
 
+/* Second animation (arcade button) */
 @keyframes floating1 {
 	10% {
 		margin-top: 0%;
@@ -361,97 +113,250 @@ height:70px;
 	}
 }
 
-
+/* Set the specific position of the classic button and set the animation for this button */
 #buttonClassic{
-top: 500px;
+	top: 500px;
 
-	-webkit-animation: floating 1.5s infinite ease-in-out;
-	-moz-animation: floating 1.5s infinite ease-in-out;
+	-moz-animation: floating 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
+	-webkit-animation: floating 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
 	animation: floating 1.5s infinite ease-in-out;
 }
 
+/* Set the specific position of the arcade button and set the animation for this button */
 #buttonArcade{
-top: 600px;
+	top: 600px;
 
-	-webkit-animation: floating1 1.5s infinite ease-in-out;
-	-moz-animation: floating1 1.5s infinite ease-in-out;
+	-moz-animation: floating1 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
+	-webkit-animation: floating1 1.5s infinite ease-in-out;	 	/* Ensure that the animation runs in different browsers */
 	animation: floating1 1.5s infinite ease-in-out;
-
 }
 
+/* If the classic button is hovered, stop the animation for this button */
 #buttonClassic:hover{
-	-moz-transition: background-color 0.5s ease-out;
+	-moz-transition: background-color 0.5s ease-out; 			/* Ensure that the animation runs in different browsers */
+	-webkit-transition: background-color 0.5s ease-out; 		/* Ensure that the animation runs in different browsers */
 	transition: background-color 0.5s ease-out;
 	animation: none;
 }
 
+/* If the classic button is hovered, stop the animation for this button */
 #buttonArcade:hover{
-	-moz-transition: background-color 0.5s ease-out;
+	-moz-transition: background-color 0.5s ease-out;			/* Ensure that the animation runs in different browsers */
+	-webkit-transition: background-color 0.5s ease-out; 		/* Ensure that the animation runs in different browsers */
 	transition: background-color 0.5s ease-out;
 	animation: none;
 }
 
 
-.welcome{
-	text-align: center;
-}
-
- #titleText{
-	margin-left: auto;
-	margin-right: auto;
-	width: 70%;
-	background: #282828;
-	border-radius: 25px;
-	margin-top: 5%;
-	font-size: 50px;
-	text-align: center;
+/* GAMES */
+/* Set the position of the image container, which contains the most important elements of the game */
+#imageContainer {
 	position: relative;
-	box-shadow: 3px 10px 1px 1px #101010;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
- }
-
- #welcomeText{
-	background: #282828;
-	border-radius: 25px;
-	padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 3%;
-	width: 70%;
-	font-size: 30px;
-	text-align: center;
-	position: relative;
-	box-shadow: 3px 10px 1px 1px #101010;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
- }
- 
-
- .buttonContainer { 
-text-align: center;
-
 }
 
- .indexButton {
- 	text-decoration: none;
+/* Set the position and z-index (0 = baseline) of the key cards */
+.card{
+	z-index: 0;
+	width: 20%;
+	height: 35%;
 	position: absolute;
+	cursor:pointer;
+}
+
+/* Set the position and z-index of the play card element */
+.playCard{
+	z-index: 1;			/*play card is by default on top of key cards*/
+	position: absolute;
+	right: 0%;
+	bottom: 0%
+}
+
+/* Set th position of the first card, relative to the image container */
+#firstCard {
+    left: 0%;
+}
+
+/* Set th position of the second card, relative to the image container */
+#secondCard {
+    left: 27%;
+}
+
+/* Set th position of the third card, relative to the image container */
+#thirdCard {
+    left: 53%;
+}
+
+/* Set th position of the fourth card, relative to the image container */
+#fourthCard {
+    left: 80%;
+}
+
+/* MODALS */
+/* Set the position and the color of the background of the modal */
+.modal {
+	display: none; 			/* Hidden by default */
+	position: fixed; 
+	z-index: 3; 			/* Almost highest z-index; only menu goes on top */
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.4);
+	height: 70%;
+}
+
+/* Set the color, height, margins and padding of the modal content */
+.modalContent {
 	background: #282828;
+	height: 100%;
 	border-radius: 25px;
-	width: 180px;
-	padding: 20px 20px;
-	cursor: pointer;
-	color: white;
+	box-shadow: 3px 10px 10px 1px #101010;
+	margin: auto;
+	padding: 20px;
+	width: 80%;
+    overflow-y: scroll; 	/* Ensure that the length of the modal is always scrollable */
+	text-align:center;
+
+	/* Run the animation open modal when the modal appears */
+	-moz-animation: openModal 0.3s 1; 		/* Ensure that the animation runs in different browsers */
+	-webkit-animation: openModal 0.3s 1; 	/* Ensure that the animation runs in different browsers */
+	animation: openModal 0.3s 1;
+}
+
+/* The animation open modal defines what happens if a modal is opened; it is scaled from 0.7 to 1 and made visible*/
+@keyframes openModal {
+	0% {
+	opacity: 0;
+	-moz-transform: scale(0.7);  	/* Ensure that the animation runs in different browsers */
+	-ms-transform: scale(0.7);  	/* Ensure that the animation runs in different browsers */
+	-webkit-transform: scale(0.7);  /* Ensure that the animation runs in different browsers */
+	transform: scale(0.7);
+  }
+  100% {
+	opacity: 1;
+	-moz-transform: scale(1);  		/* Ensure that the animation runs in different browsers */
+	-ms-transform: scale(1);  		/* Ensure that the animation runs in different browsers */
+	-webkit-transform: scale(1);  	/* Ensure that the animation runs in different browsers */
+	transform: scale(1);
+  }
+}
+
+/* Set the font size and alignment of modal text*/
+ .modalText{
+	 font-size: 30px;
+	 text-align: center;
+ }
+ 
+/* Set the specific size and margins of the level modal (displayed upon new level) */
+#modalContentLevel {
+	height: 400px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Set the specific size and margins of the end modal (displayed upon game over)*/
+#modalContentEnd {
+	height: 400px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* MENU */
+/* Set the position, color and size of the menu button */
+#menuButton{
+	position: fixed;
+	top: 0px;
+    font-size:50px;
+    cursor:pointer;
+    color:white;
+    width:50px;
+    height:50px;
+}
+
+/* Set the position, size and color of the menu overlay*/
+.menuOverlay {
+	height: 0%;
+	width: 100%;
+	position: fixed;
+	z-index: 4;				/* Highest z-index; menu is always on top */
+	top: 0;
+	left: 0;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0, 0.9);
+	overflow-y: hidden;		/* Length scrolling is not possible by default */
+	transition: 0.5s;
+}
+
+/* Set the position, size and color of the elemnt that contains the menu content*/
+.menuContent {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+/* Set the position, size and color of the a element in the menu overlay*/
+.menuOverlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+/* Set the position, size and color of the b element in the menu overlay*/
+.menuOverlay b {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 44px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+/* If menu buttons are hovered, they become lighter */
+.menuOverlay a:hover {
+	color: #f1f1f1;
+}
+
+/* Set the position and size of the closebutton element in the menu overlay*/
+.menuOverlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+}
+
+
+/* ARCADE SPECIFIC */
+/* Set the position and size of the show score element in arcade games */
+#showScore {
+    text-align: left;
+	position: absolute;
+	left: 0%;
+	bottom: 0%;
 	font-size: 30px;
-	box-shadow: 3px 10px 1px 1px #101010;
-	
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
- }
+}
+
+/* Set the position and size of the show timing element in arcade games*/
+#showTiming {
+	position: absolute;
+	left: 0%;
+    bottom: 120px;
+	font-size: 30px;
+    color: red;
+}
+
  
- .indexButton:hover {
-  background: #333333;
- }
  
-  .startButton {
+  .modalButton {
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 0%;
@@ -472,6 +377,6 @@ text-align: center;
 	
  }
  
- .startButton:hover {
+ .modalButton:hover {
   background: #333333;
  }
