@@ -5,7 +5,7 @@ function isIE() {
 	let isItIe = userAgent.indexOf("MSIE ") > -1 || userAgent.indexOf("Trident/") > -1 || userAgent.indexOf("Edge") > -1;
   
 	if (isItIe == true){
-		alert("The WCST does not function optimally in internet explorer and windows edge. Please switch browsers for a better experience.");
+		alert("The WCST game is not fully supported by Internet Explorer and Microsoft Edge. Please switch browsers for a better experience.");
 	}; 
 }
 
