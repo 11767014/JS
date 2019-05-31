@@ -28,7 +28,7 @@ html, body{
 	background-image: linear-gradient(0deg, #000000, #181818, #000000);
 }
 
-/* Center-align the text in the welcome element*/
+/* Center-align the text in the welcome element */
 .welcome{
 	text-align: center;
 }
@@ -38,7 +38,7 @@ html, body{
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
-	background: #282828;
+	background: #2a2e1f;
 	border-radius: 25px;
 	margin-top: 5%;
 	font-size: 50px;
@@ -49,12 +49,13 @@ html, body{
 
 /* Set the position, size, font and color of the text in the title of the index page*/
  #welcomeText{
-	background: #282828;
+	background: #2a2e1f;
 	border-radius: 25px;
 	padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 3%;
+	margin-bottom: 10%;
 	width: 70%;
 	font-size: 30px;
 	position: relative;
@@ -71,11 +72,14 @@ html, body{
 
 /* Set the color, size, position, margin and padding of the buttons on the index page */
  .indexButton {
+	margin-top: 10%;
+	margin-bottom: 10%;
  	text-decoration: none;
 	position: absolute;
-	background: #282828;
+	background: #464d33;
 	border-radius: 25px;
 	width: 180px;
+	height: 45px;
 	padding: 20px 20px;
 	cursor: pointer;
 	color: white;
@@ -90,43 +94,43 @@ html, body{
  
  /* If an index button is hovered, the background becomes lighter */
  .indexButton:hover {
-	background: #333333;
+	background: #98a375;
 }
 
 /* Create two separate animations for the buttons, so that they float asynchronous*/
 /* First animation (classic button) */
 @keyframes floating {
 	0% {
-		margin-top: 0%;
+		margin-top: 50px;
 	}
 	50% {
-		margin-top: 0.5%;
+		margin-top: 55px;
 	}
 	
 	100%	{
-		margin-top: 0%;
+		margin-top: 50px;
 	}
 }
 
 /* Second animation (arcade button) */
 @keyframes floating1 {
 	10% {
-		margin-top: 0%;
+		margin-top: 170px;
 	}
 	
 	60% {
-		margin-top: 0.5%;
+		margin-top: 175px;
 	}
 	
 	100%	{
-		margin-top: 0%;
+		margin-top: 170px;
 	}
 }
 
 /* Set the specific position of the classic button and set the animation for this button */
 #buttonClassic{
-	top: 500px;
-
+	margin-top: 50px;
+	
 	-moz-animation: floating 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
 	-webkit-animation: floating 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
 	animation: floating 1.5s infinite ease-in-out;
@@ -134,8 +138,8 @@ html, body{
 
 /* Set the specific position of the arcade button and set the animation for this button */
 #buttonArcade{
-	top: 600px;
-
+	margin-top: 170px;
+	
 	-moz-animation: floating1 1.5s infinite ease-in-out; 		/* Ensure that the animation runs in different browsers */
 	-webkit-animation: floating1 1.5s infinite ease-in-out;	 	/* Ensure that the animation runs in different browsers */
 	animation: floating1 1.5s infinite ease-in-out;
@@ -214,12 +218,12 @@ html, body{
 	left: 0;
 	top: 0;
 	background-color: rgba(0,0,0,0.4);
-	height: 70%;
+	min-height: 80%;
 }
 
 /* Set the color, height, margins and padding of the modal content */
 .modalContent {
-	background: #282828;
+	background: #1c1f14;
 	height: 100%;
 	border-radius: 25px;
 	box-shadow: 3px 10px 10px 1px #101010;
@@ -283,7 +287,7 @@ html, body{
 	margin-bottom: 0%;
 	position: relative;
 	bottom: 0%;
-	background: #282828;
+	background: #464d33;
 	border-radius: 25px;
 	width: 180px;
 	padding: 20px 20px;
@@ -295,7 +299,7 @@ html, body{
  
  /* Set the background color of modal buttons on hover*/
  .modalButton:hover {
-  background: #333333;
+  background: #98a375;
  }
 
 
