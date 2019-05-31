@@ -10,7 +10,7 @@ let levelRound = 1;             		// levelRound contains the number of rounds a 
 // Function that defines what happens at game over in an arcade game
 // Displays score,level and perseverance errors in a modal
 function gameOver() {
-    openModal(endModal, true);
+    openModal(endModal);
     document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> <br><br/> This is the end of your game. Your score was " + score + " and you made " + errors + " errors, of which " + prsvrnceErrors + " were perseverance errors. You reached level " + level + " and discovered " + round + " rules. <br><br/> Well done! Do you want to try again?"
 };
 
@@ -34,31 +34,31 @@ function startTrial(){
 				document.getElementById("modalTextLevel").innerHTML = "<b>First level!</b> <br><br/> In the first level, you receive a warning when the rule changes. Try to find the new hidden rule and try not to make too many errors."
 				break;
 
-			// if level is 2, the maxmimum number of errors is 5.
+			// if level is 2, the maxmimum number of errors is 7.
 			case 2:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> The second level is like a classical game. Try to find the hidden rule, but beware not to make more than 5 errors."
-				maxErrors = 5;
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> The second level is like a classical game. Try to find the hidden rule, but beware not to make more than 7 errors."
+				maxErrors = 7;
 				break;
 
-			// if level is 3, the maxmimum number of errors is 5 and the time to sort a card is 5.5 seconds
+			// if level is 3, the maxmimum number of errors is 7 and the time to sort a card is 5.5 seconds
 			case 3:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> In the third level, your time is limited. Try to find the hidden rule, but beware not to make more than 5 errors. If you take more than 5 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> In the third level, your time is limited. Try to find the hidden rule, but beware not to make more than 7 errors. If you take more than 5 seconds, the card will automatically count as an error."
 				timeSpan = 5500;
-				maxErrors = 5;
+				maxErrors = 7;
 				break;
 				
-			// if level is 4, the maxmimum number of errors is 4 and the time to sort a card is 4 seconds
+			// if level is 4, the maxmimum number of errors is 7 and the time to sort a card is 4 seconds
 			case 4:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> Well done so far! Again, try to find the hidden rule, but beware not to make more than 4 errors. If you take more than 3 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> Well done so far! Again, try to find the hidden rule, but beware not to make more than 7 errors. If you take more than 3 seconds, the card will automatically count as an error."
 				timeSpan = 3500;
-				maxErrors = 4;   
+				maxErrors = 7;   
 				break;
 				
-			// if level is 5, the maximum number of errors is 3 and the time to sort a card is 2.5 seconds
+			// if level is 5, the maximum number of errors is 7 and the time to sort a card is 2.5 seconds
 			case 5:
-				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> This is the final level. Try to find the hidden rule, but beware not to make more than 3 errors. If you take more than 2 seconds, the card will automatically count as an error."
+				document.getElementById("modalTextLevel").innerHTML = "<b>Level up!</b> <br><br/> This is the final level. Try to find the hidden rule, but beware not to make more than 7 errors. If you take more than 2 seconds, the card will automatically count as an error."
 				timeSpan = 2500;
-				maxErrors = 3;   
+				maxErrors = 7;   
 				break;
 		}
 	}

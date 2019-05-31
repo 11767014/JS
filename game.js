@@ -64,7 +64,7 @@ let endModal = document.getElementById("endModal");     // endModal is the modal
 // Function to make the modal visible (e.g. opening the modal)
 openModal = function(elem) {
 	elem.style.display = "block";     	// elem is the modal of interest
-	if(level > 3){               		// arcade game levels >2 contain a timer that should stop if the modal is opened
+	if(level > 2){               		// arcade game levels >2 contain a timer that should stop if the modal is opened
         clearInterval(timer);
     }
 }
@@ -113,7 +113,7 @@ function debugInConsole(rulesOnly){
 }
 
 // If desired, debugInConsole can be executed
-//debugInConsole()
+// debugInConsole()
 
 // Function to change the rule
 function changeRule(){
