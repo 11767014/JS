@@ -57,6 +57,8 @@ html, body{
 /* Center-align the buttons in the buttonContainer element */
  .buttonContainer { 
 	text-align: center;
+	margin-left: 50%;
+	margin-right: 50%;
 }
 
 /* Set the color, size, position, margin and padding of the buttons on the index page */
