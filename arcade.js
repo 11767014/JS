@@ -11,7 +11,7 @@ let levelRound = 1;             		// levelRound contains the number of rounds a 
 // Displays score,level and perseverance errors in a modal
 function gameOver() {
     openModal(endModal, true);
-    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> </br></br> This is the end of your game. Your score was " + score + " and you made " + errors + ", of which " + prsvrnceErrors + " were perseverance errors. You reached level " + level + " and discovered " + round + " rules. </br></br> Well done! Do you want to try again?"
+    document.getElementById("endModalText").innerHTML = "<b>GAME OVER</b> </br></br> This is the end of your game. Your score was " + score + " and you made " + errors + "errors, of which " + prsvrnceErrors + " were perseverance errors. You reached level " + level + " and discovered " + round + " rules. </br></br> Well done! Do you want to try again?"
 };
 
 // Function to show the current score, number of errors and level
