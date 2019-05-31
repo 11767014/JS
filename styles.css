@@ -218,7 +218,7 @@ html, body{
 	left: 0;
 	top: 0;
 	background-color: rgba(0,0,0,0.4);
-	min-height: 80%;
+	height: 80%;
 }
 
 /* Set the color, height, margins and padding of the modal content */
@@ -259,7 +259,6 @@ html, body{
 
 /* Set the font size and alignment of modal text*/
  .modalText{
-    overflow: hidden; 		/* Ensure that the length of the modal is never scrollable */
 	font-size: 30px;
 	text-align: center;
  }
