@@ -113,7 +113,7 @@ function debugInConsole(rulesOnly){
 }
 
 // If desired, debugInConsole can be executed
-debugInConsole()
+//debugInConsole()
 
 // Function to change the rule
 function changeRule(){
@@ -128,7 +128,7 @@ function changeRule(){
     while (oldRule == rule);
 	
 	// if desired, display the new rule and old rule in the console
-    debugInConsole()
+    // debugInConsole()
 	
 	// if the level is one but not at the start of the very first round, alert the player of the new rule
 	if (level == 1 && round != 0){

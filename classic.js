@@ -6,8 +6,8 @@ document.getElementById("startModalText").innerHTML = "<b>CLASSICAL GAME</b> </b
 function endTrial(){
     // count the trial
     nTrial = nTrial + 1;
-    // after 64 trials, the game is ended
-    if(nTrial == 64){
+    // after 128 trials, the game is ended
+    if(nTrial == 128){
         gameOver();
     }
     
